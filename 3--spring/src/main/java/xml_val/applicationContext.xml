@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<bean id="person" class="xml_val.dao.Person"></bean>
+	<bean id="personDAO" class="xml_val.dao.PersonDAOImpl" >
+		<property name="name" value="王哲"></property>
+		<property name="age" value="23"></property>
+		<property name="person" ref="person"></property>
+		<!-- 内部bean   Person	-->
+		<property name="perClass" ref ="person">
+		</property>
+		<!-- list   既可以存数据    也可以映射对象-->
+		<property name="list">
+			<list>
+				<value>1</value>
+				<value>2</value>
+				<value>3</value>
+				<value>4</value>
+				<value>5</value>
+				<ref bean="person"/>
+			</list>
+		</property>
+		<!-- 数组 -->
+		<property name="obj">
+			<list>
+				<value>21</value>
+				<value>22</value>
+				<value>23</value>
+				<value>24</value>
+				<value>25</value>
+				<ref bean="person"/>
+			</list>
+		</property>
+		<!-- set -->
+		<property name="set">
+			<set>
+				<value>31</value>
+				<ref bean="person"/>
+			</set>
+		</property>
+		<!--map  -->
+		<property name="map">
+			<map>
+				<entry key="key01">
+					<value>100</value>
+				</entry>
+				
+				<entry key="key02">
+					<value>200</value>
+				</entry>
+			</map>
+		</property>
+		<property name="prop">
+			<props>
+				<prop key="prop1"></prop>
+				<prop key="prop2"></prop>
+			</props>
+		</property>
+		
+		<property name="listNull">
+			<null></null>
+		</property>
+	</bean>
+</beans>
