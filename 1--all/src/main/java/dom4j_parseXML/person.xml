@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<persons>
+  <person cardno="1001">
+      <name>张三</name>
+	  <age>23</age>
+	  <address>黑龙江省安达市</address>
+	  <birthday>20140501</birthday>
+  </person>
+  <person cardno="1002">
+      <name>LILEI</name>
+	  <age>33</age>
+	  <address>河北省石家庄市</address>
+	  <birthday>20141121</birthday>
+  </person>
+  <person cardno="1003">
+      <name>LIMING</name>
+	  <age>13</age>
+	  <address>山西太原市</address>
+	  <birthday>20141015</birthday>
+  </person>
+  <person cardno="1004">
+      <name>王小虎</name>
+	  <age>43</age>
+	  <address>黑龙江省绥化市</address>
+	  <birthday>20140128</birthday>
+  </person>
+</persons>
