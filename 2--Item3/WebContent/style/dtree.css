@@ -1,0 +1,47 @@
+/*--------------------------------------------------|
+| dTree 2.05 | www.destroydrop.com/javascript/tree/ |
+|---------------------------------------------------|
+| Copyright (c) 2002-2003 Geir Landrö               |
+|--------------------------------------------------*/
+
+.dtree {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #666;
+	white-space: nowrap;
+}
+.dtree img {
+	border: 0px;
+	vertical-align: middle;
+}
+.dtree a {
+	color: #333;
+	text-decoration: none;
+}
+.dtree a.node, .dtree a.nodeSel {
+	white-space: nowrap;
+	padding: 1px 2px 1px 2px;
+}
+.dtree a.node:hover, .dtree a.nodeSel:hover {
+	color: #333;
+	text-decoration: underline;
+}
+.dtree a.nodeSel {
+	background-color: #c0d2ec;
+}
+.dtree .clip {
+	overflow: hidden;
+}
+.input
+{
+    FONT-FAMILY: ËÎÌå;
+    FONT-SIZE: 9pt;
+  BORDER-RIGHT: #D2D2D2 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #D2D2D2 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; FONT: 10pt "ËÎÌå"; BORDER-LEFT: #D2D2D2 1px solid; COLOR: #333333; PADDING-TOP: 0px; BORDER-BOTTOM: #D2D2D2 1px solid;
+}
+.button
+{  
+    FONT-FAMILY: ËÎÌå;
+    FONT-SIZE: 9pt;
+	background-color:#E8E8E8;
+  BORDER-RIGHT: #D2D2D2 1px solid; BORDER-TOP: #D2D2D2 1px solid; BORDER-LEFT: #D2D2D2 1px solid; BORDER-BOTTOM: #D2D2D2 1px solid;
+}

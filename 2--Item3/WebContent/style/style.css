@@ -1,0 +1,148 @@
+﻿body {
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;	
+}
+.gray12 {
+	color: #464646;
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	text-decoration: none;
+}
+.gray12 a:link {
+	color: #464646;
+	text-decoration: none;
+	font-family: "宋体";
+	font-size: 12px;
+}
+.gray12 a:visited {
+	color: #464646;
+	text-decoration: none;
+}
+
+.gray12 a:hover {
+	color: #FF6600;
+	text-decoration: underline;
+}
+
+
+.blank12cu {
+	font-family: "宋体";
+	font-size: 12px;
+	font-weight: bold;
+	color: #000000;
+}
+
+.zise12 {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 24px;
+	color: #684F74;
+}
+.kkzs {
+	border: 1px solid #DCD3E0;
+}
+.kzise {
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-top-color: #85c6E9;
+	border-right-color: #85c6E9;
+	border-bottom-color: #85c6E9;
+	border-left-color: #85c6E9;
+}
+.btn {
+	PADDING-RIGHT: 2px;
+	PADDING-LEFT: 2px;
+	FONT-SIZE: 12px;
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#FFFFFF, EndColorStr=#9DBCEA); 
+	PADDING-BOTTOM: 0px;
+	CURSOR: hand;
+	COLOR: black;
+	PADDING-TOP: 2px;
+	background-image: url(file:///D|/OA/images/dd.gif);
+	border: 1px solid #065FAE;
+}
+
+.zi14cu {
+	font-family: "宋体";
+	font-size: 14px;
+	font-weight: bold;
+	color: #867290;
+}
+.lanse12 {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #233F79;
+	line-height: 24px;
+}
+.kzise2zouque {
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #85C6E9;
+	border-right-color: #85C6E9;
+	border-bottom-color: #85C6E9;
+	border-left-color: #85C6E9;
+}
+.kzise3xia {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-top-color: #85c6E9;
+	border-right-color: #85c6E9;
+	border-bottom-color: #85c6E9;
+	border-left-color: #85c6E9;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+}
+.kzise3szx {
+	border: 1px solid #85C6E9;
+}
+
+.kziseyou {
+
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-top-color: #85c6E9;
+	border-right-color: #85c6E9;
+	border-bottom-color: #85c6E9;
+	border-left-color: #85c6E9;
+}
+.kzise2xia {
+	border: 1px solid #85C6E9;
+}
+.kzise3shxia {
+	padding-right: -1px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #85C6E9;
+	border-right-color: #85C6E9;
+	border-bottom-color: #85C6E9;
+	border-left-color: #85C6E9;
+}
+.kzise3shangxiayou {
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #85C6E9;
+	border-right-color: #85C6E9;
+	border-bottom-color: #85C6E9;
+	border-left-color: #85C6E9;
+}
