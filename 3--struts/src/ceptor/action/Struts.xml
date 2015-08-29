@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<!-- 拦截器不能 写在跟标签中 -->
+	<package name="" extends="struts-default">
+<!--  将拦截器定义在package 中 表示这个拦截器只在这个package中使用
+        配置：  声明已经 编写好代码的拦截器 
+ -->
+		 <interceptors >
+		    <interceptor name="test1" class="interceptor.MyInterceptor1">
+		      <!-- 向这个拦截器传递参数 名是java 值是李健 -->
+		      <param name="java">李健</param>
+		    </interceptor>
+		    <interceptor name="test2" class="interceptor.MyInterceptor2"></interceptor>
+		    <interceptor name="test3" class="interceptor.MyInterceptor3"></interceptor>
+		    <!-- 以上仅仅表示存在3个拦截器 ，如果要使用拦截器，必须将拦截器配置在拦截器战中 -->
+		    <interceptor-stack name="test">
+		      <interceptor-ref name="test1"></interceptor-ref>
+		      <interceptor-ref name="test2"></interceptor-ref>
+		      <interceptor-ref name="test3"></interceptor-ref>
+		      <interceptor-ref name="defaultStack"></interceptor-ref><!-- 默认拦截器 -->
+		    </interceptor-stack>
+		 </interceptors>
+		 <!-- 全局拦截器 -->
+		 <default-interceptor-ref name="test"></default-interceptor-ref>
+		 <!-- 如果定义全局拦截器，则表示 当前package下，所有action 都要执行拦截器 
+		      写在action 标签内的拦截器，叫局部拦截器，只针对 这个action 起作用
+		      写在 default-interceptor-ref 标签内的叫全局action 针对所有 package下所有action起作用
+		  拦截器 实现原理 ： 
+		      拦截器的方法 都是通过代理的方法实现的， 
+		     struts2的拦截器的实现方法相对简单，
+		                  （实现原理）当请求发送到struts2 。servletdispathcher 进行路径的跳转时会根据 struts。xml文件的
+		                  配置查询对应的路径，
+		                  并根据其配置信息加在对应的拦截器对象   然后一个一个的调用拦截器，
+		 -->
+		  <action name="action" class="action.Action" >
+		    <interceptor-ref name="test"></interceptor-ref>
+	  		<result name="success">struts_2_ceptor/index.jsp</result>
+	  	</action>
+	  	
+	</package>
+</struts>

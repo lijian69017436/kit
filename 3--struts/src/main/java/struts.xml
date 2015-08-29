@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- 配置长量 -->
+	<!-- action 后缀名 默认是action -->
+  	<constant name="struts.action.extension" value="do,action"></constant>
+	<!-- 动态方法调用 -->
+  	<constant name="struts.enable.DynamicMethodInvocation" value="false"></constant>
+	<!-- 是否重新加载struts。xml文件 -->
+  	<constant name="struts.configuration.xml.reload" value="true"></constant>
+	<!-- 是否使用struts开发模式 -->
+  	<constant name="struts.devMode" value="false"></constant>
+	<!-- 是否开启静态内容缓存 -->
+  	<constant name="struts.serve.static.browserCache" value="false"></constant>
+  	<package name="default" extends="struts-default">
+	  	<action name="login" class="action.LoginAction" >
+	  		<!-- name： 是访问action的  一个映射
+	  			class： 是一个实体路径 
+	  			method:自定义方法的名字
+	  			result： 是返回结果视图
+	  			name：和action类中结果码对应，如果没有name默认接受的是success的视图
+	  			type:结果视图类型
+	  				redirect  dispatcher  页面跳转
+					redirectAction  chain  action跳转
+					stream  流  上传下载
+	  		-->
+	  		<result name="success">struts_1/index.jsp</result><!-- 接受从action。java返回的值  在跳转到路径或者页面 -->
+	  		<result name="登陆" type="redirect">struts_1/index.jsp</result><!-- 接受从action。java返回的值  在跳转到路径或者页面 -->
+	  	</action>
+ 	 </package>
+   
+   
+ 	<include file="action/Struts.xml"></include>
+</struts>
+	
+	
