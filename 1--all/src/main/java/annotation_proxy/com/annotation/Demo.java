@@ -5,6 +5,6 @@ public class Demo {
   
 	@anntation(name="aa",value="bb")
 	public static void hello(){
-		System.out.println("˵��");
+		System.out.println("hello");
 	}
 }

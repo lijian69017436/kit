@@ -6,16 +6,12 @@ public class Test {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// �ж� ����û��  ָ���� ע��
 		boolean falg =Demo.class.isAnnotationPresent(anntation.class);
 		if(falg){
-			System.out.println("��ע��");
-			//�õ���ע�� 
+			System.out.println(">>");
 			anntation a=Demo.class.getAnnotation(anntation.class);
-			//��ȡע������
 			System.out.println(">"+a.name());
 			System.out.println(a.value());
-			
 			
 		}
 		//anntation a=	Demo.class.getAnnotation(anntation.class);
