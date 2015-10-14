@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
+encoding//src/main/java/design/design/proxys/dynamicproxys/HelloImpl.java=gbk
 encoding//src/main/java/exception/DateUtils.java=gbk
 encoding//src/main/java/exception/ExceptionTest1.java=gbk
 encoding//src/main/java/exception/ExceptionTest2.java=gbk
@@ -7,7 +8,6 @@ encoding//src/main/java/exception/ExceptionTest3.java=gbk
 encoding//src/main/java/exception/ExceptionTest_res2.java=gbk
 encoding//src/main/java/exception/MyException.java=gbk
 encoding//src/main/java/gui/Awt/FirstWindow.java=gbk
-encoding//src/main/java/proxys/HelloImpl.java=gbk
 encoding//src/main/java/se/se/File/ImagesFilters.java=GBK
 encoding//src/main/java/se/se/File/test.java=GBK
 encoding//src/main/java/se/se/annotation_proxy/com/annotation_proxy/MethdDaoProxy.java=UTF-8
