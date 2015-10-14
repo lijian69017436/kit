@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 import org.junit.Test;
 
-public class Factory {
+/***
+ * @介绍 : 这个类 是一个简单工厂的 实现 
+ * */
+public class Factory { //简单工厂模式    传入参数返回创建的对象
   @Test
   public void test(){ //客户端 
-    Operation oper;
-    OperationFactory fac=new OperationFactory();
-
     Scanner sc = new Scanner(System.in);  
     System.out.print("请输入数字A:");
     String stra=sc.next();
@@ -18,10 +18,12 @@ public class Factory {
     System.out.print("请输入数字b:");
     String strb=sc.next();
     
-    oper=fac.createOperation(strc);
+    
+    Operation oper;
+    oper=new OperationFactory().createOperation(strc);//工厂类 :根据 需求 创建相对应的对象
     oper.doubleA=Integer.valueOf(stra);
     oper.doubleB=Integer.valueOf(strb);
-    System.out.println(oper.getResult());
+    System.out.println(oper.getResult()); 
   }
   
 } 

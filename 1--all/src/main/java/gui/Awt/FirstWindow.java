@@ -42,7 +42,6 @@ public class FirstWindow {
 					System.exit(0);
 				}
 			}
-			
 		});
 		
 		tf=new TextField();//лМ╪снд╠╬©Р

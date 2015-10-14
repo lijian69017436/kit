@@ -4,8 +4,10 @@ import java.util.Scanner;
 
 import org.junit.Test;
 
-
-public class Progarm {
+/**
+ * 这个类介绍的 : 是面向对象 工厂模式演变的过程   
+ */
+public class Program { 
   @Test
   public void progarm() { //最简单的 计算器  面向过程的
     Scanner sc = new Scanner(System.in);  
@@ -95,6 +97,5 @@ class count{
     }
     return result;
   }
-  
-  
 }
+
