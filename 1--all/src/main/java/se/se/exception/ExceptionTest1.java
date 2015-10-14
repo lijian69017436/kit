@@ -1,15 +1,15 @@
-package exception;
+package se.se.exception;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ExceptionTest1 {
-    public Date getNowDate(String str) throws ParseException ,ArithmeticException{//throws ÔÚ·½·¨ÉùÃ÷Ê±Ê¹ÓÃ£¬±íÊ¾Å×³ö¿ÉÄÜ²úÉúµÄÒì³££»
-    	//Èç¹ûthrows Å×³ö¶àÖÖÒì³££¬´ËÊ±ÓÃ£¬ºÅ¸ô¿ª£»Ö»ÓÐ·ÇÔËÐÐÊ±Òì³££¬Å×³öÒÔºó±ØÐëÊÖ¶¯²¶»ñ»òÕßthrows
+    public Date getNowDate(String str) throws ParseException ,ArithmeticException{//throws ï¿½Ú·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±Ê¹ï¿½Ã£ï¿½ï¿½ï¿½Ê¾ï¿½×³ï¿½ï¿½ï¿½ï¿½Ü²ï¿½ï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½
+    	//ï¿½ï¿½ï¿½throws ï¿½×³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Ã£ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ì³£ï¿½ï¿½ï¿½×³ï¿½ï¿½Ôºï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½throws
     	Date day=new Date();
     	SimpleDateFormat simpleFormat=new SimpleDateFormat("yyyy-MM-dd");
-    	day=simpleFormat.parse(str);//´ËÊ±throws ½«ParseExceptionÒì³£Å×³ö£¬²¢²»²¶»ñ´¦Àí£»
+    	day=simpleFormat.parse(str);//ï¿½ï¿½Ê±throws ï¿½ï¿½ParseExceptionï¿½ì³£ï¿½×³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?
     	return day;
     }
     
@@ -20,8 +20,8 @@ public class ExceptionTest1 {
 				System.out.println("++++++++++++++++");
 				
 			}catch(ArithmeticException e){
-				//tryÀ´²¶»ñ£¬catch´¦ÀíÖ¸¶¨ÀàÐÍµÄÒì³£
-				e.printStackTrace();//ÓÃÓÚ¿ØÖÆÌ¨Êä³öÒì³£ÐÅÏ¢£»	
+				//tryï¿½ï¿½ï¿½ï¿½ï¿½ï¿½catchï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½ï¿½ì³£
+				e.printStackTrace();//ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½Ì¨ï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½Ï¢ï¿½ï¿½	
 			}
 			catch (ParseException e) {
 				
@@ -36,7 +36,7 @@ public class ExceptionTest1 {
     public static void main(String args[]){
     	ExceptionTest1 test=new ExceptionTest1();
     	
-	    test.test();//tryÖÐ³ÌÐò±íÊ¾Òª²¶»ñÒì³£µÄÏà¹Ø³ÌÐò£»
+	    test.test();//tryï¿½Ð³ï¿½ï¿½ï¿½ï¿½Ê¾Òªï¿½ï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½ï¿½ï¿½Ø³ï¿½ï¿½ï¿½
 			
 		
     	

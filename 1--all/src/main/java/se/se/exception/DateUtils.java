@@ -1,4 +1,4 @@
-package exception;
+package se.se.exception;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -7,30 +7,30 @@ import java.util.Date;
 
 
 /*
- *   ÖÜÈÕ£º7  2014-08-10
- *   ÖÜ2£ºÎªÏÖÔÚÈÕÆÚµÄĞÇÆÚ 2014-08-05
+ *   ï¿½ï¿½ï¿½Õ£ï¿½7  2014-08-10
+ *   ï¿½ï¿½2ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ 2014-08-05
  * 
- *   ÏÂÖÜÒ»£º 2014-08-10  +  i=1; 
+ *   ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ 2014-08-10  +  i=1; 
  *    ...  +   i++;
  *    
- *    ÉÏÖÜÎå£º2014-08-10  -7  ÇóÉÏÖÜÈÕ£»-2 ÖÜÎå£» +  j=-7-2
+ *    ï¿½ï¿½ï¿½ï¿½ï¿½å£º2014-08-10  -7  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ£ï¿½-2 ï¿½ï¿½ï¿½å£» +  j=-7-2
  *    ...  +  j--
  *    
  * 
  * */
 
 public class DateUtils {
-	//Çóµ±Ç°ÈÕÆÚ¾àÀë±¾ÖÜÈÕÏà²î¼¸Ìì£»
+	//ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ú¾ï¿½ï¿½ë±¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î¼¸ï¿½ì£»
    public long getDateBetweenOfWeek(Date day){
-	   Calendar calendar=Calendar.getInstance(); //µÃµ½ÈÕÀú
-	   calendar.setTime(day); //ÉèÖÃÊ±¼ä 
+	   Calendar calendar=Calendar.getInstance(); //ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½
+	   calendar.setTime(day); //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ 
 	   //calendar.set(2014, 7,10);
-	   int date=calendar.get(Calendar.DAY_OF_WEEK);//1-7 //µÃµ½ ÖÜ ¼¸
+	   int date=calendar.get(Calendar.DAY_OF_WEEK);//1-7 //ï¿½Ãµï¿½ ï¿½ï¿½ ï¿½ï¿½
 	   switch (date) {
-			case 1://ÖÜÈÕ
+			case 1://ï¿½ï¿½ï¿½ï¿½
 				  date=7;
 				break;
-			case 2://ÖÜÒ»
+			case 2://ï¿½ï¿½Ò»
 				  date=1;
 				break;
 			case 3:
@@ -44,7 +44,7 @@ public class DateUtils {
 				break;
 			case 6:
 				  date=5;
-			case 7://ÖÜÁù
+			case 7://ï¿½ï¿½ï¿½ï¿½
 				  date=6;
 				break;	
 	 
@@ -53,7 +53,7 @@ public class DateUtils {
 	   return 7-date;
   }
    
-   //Ö¸¶¨ÈÕÆÚµÄËùÔÚÖÜ ÖÜÈÕ£¬ÈÕÆÚ£»
+   //Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Õ£ï¿½ï¿½ï¿½ï¿½Ú£ï¿½
    public Date getSundayDay(Date day){
 	   Calendar calendar=Calendar.getInstance();
 	   calendar.setTime(day);
@@ -64,33 +64,33 @@ public class DateUtils {
    
    
    
-   //¸Ã·½·¨ÓÃÓÚ»ñÈ¡ÏÂÖÜÒ»µ½ÖÜÎåÈÕÆÚ£º
+   //ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú»ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½
    public String [] getNextWeekDays(Date day){
-	  Date sunday= this.getSundayDay(day);//»ñÈ¡±¾ÖÜÈÕÈÕÆÚ£»
-	  Calendar calendar=Calendar.getInstance();//»ñÈ¡calendar¶ÔÏó£¬²Ù×÷date
-	  calendar.setTime(sunday);//½«±¾ÖÜÈÕÈÕÆÚ£¬×ªÎªCalendar¶ÔÏó£»
+	  Date sunday= this.getSundayDay(day);//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½
+	  Calendar calendar=Calendar.getInstance();//ï¿½ï¿½È¡calendarï¿½ï¿½ï¿½ó£¬²ï¿½ï¿½ï¿½date
+	  calendar.setTime(sunday);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½×ªÎªCalendarï¿½ï¿½ï¿½ï¿½
 	  int i=1;
 	  String nextWeekDaysStr[]=new String[5];
 	  SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
-	  calendar.add(Calendar.DAY_OF_MONTH, i);//ÖÜÒ»
+	  calendar.add(Calendar.DAY_OF_MONTH, i);//ï¿½ï¿½Ò»
 	  	nextWeekDaysStr[0]=format.format(calendar.getTime());
 	  	
-	  calendar.add(Calendar.DAY_OF_MONTH, i);//ÖÜ¶ş
+	  calendar.add(Calendar.DAY_OF_MONTH, i);//ï¿½Ü¶ï¿½
 	  	nextWeekDaysStr[1]=format.format(calendar.getTime());
 	  	
-	  calendar.add(Calendar.DAY_OF_MONTH, i);//ÖÜÈı
+	  calendar.add(Calendar.DAY_OF_MONTH, i);//ï¿½ï¿½ï¿½ï¿½
 	  	nextWeekDaysStr[2]=format.format(calendar.getTime());
 	  	
-	  calendar.add(Calendar.DAY_OF_MONTH, i);//ÖÜËÄ
+	  calendar.add(Calendar.DAY_OF_MONTH, i);//ï¿½ï¿½ï¿½ï¿½
 	  	nextWeekDaysStr[3]=format.format(calendar.getTime());
 	  	
-	  calendar.add(Calendar.DAY_OF_MONTH, i);//ÖÜÎå
+	  calendar.add(Calendar.DAY_OF_MONTH, i);//ï¿½ï¿½ï¿½ï¿½
 	  	nextWeekDaysStr[4]=format.format(calendar.getTime());
 	   
 	   return nextWeekDaysStr;
    }
    
-   //»ñÈ¡Ö¸¶¨ÈÕÆÚÉÏÒ»ÖÜ£¬ÖÜÒ»µ½ÖÜÎåÈÕÆÚ£»
+   //ï¿½ï¿½È¡Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Ü£ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½
    public String[] getLastWeekdays(Date day){
 	   Calendar calendar=Calendar.getInstance();
 	   Date sunday=this.getSundayDay(day);
@@ -98,19 +98,19 @@ public class DateUtils {
 	   int j=-7-2;
 	   String [] items=new String[5];
 	   SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
-	   calendar.add(Calendar.DAY_OF_MONTH, j);//ÉÏÖÜÎå
+	   calendar.add(Calendar.DAY_OF_MONTH, j);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	      	items[4]=format.format(calendar.getTime());
 	      
-	   calendar.add(Calendar.DAY_OF_MONTH, -1);//ÉÏÖÜËÄ
+	   calendar.add(Calendar.DAY_OF_MONTH, -1);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	       	items[3]=format.format(calendar.getTime());
 	   
-	   calendar.add(Calendar.DAY_OF_MONTH, -1);//ÉÏÖÜÈı
+	   calendar.add(Calendar.DAY_OF_MONTH, -1);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	   		items[2]=format.format(calendar.getTime());
 	   
-	   calendar.add(Calendar.DAY_OF_MONTH, -1);//ÉÏÖÜ¶ş
+	   calendar.add(Calendar.DAY_OF_MONTH, -1);//ï¿½ï¿½ï¿½Ü¶ï¿½
 			items[1]=format.format(calendar.getTime());
 		
-	   calendar.add(Calendar.DAY_OF_MONTH, -1);//ÉÏÖÜÒ»
+	   calendar.add(Calendar.DAY_OF_MONTH, -1);//ï¿½ï¿½ï¿½ï¿½Ò»
 			items[0]=format.format(calendar.getTime());
 	   
 	   return items;
@@ -123,27 +123,27 @@ public class DateUtils {
       SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
       String now="2014-08-07";
       day=format.parse(now);
-      long j= date_between.getDateBetweenOfWeek(day);//»ñÈ¡Ö¸¶¨ÈÕÆÚ¾àÀë¸ÃÈÕÆÚËùÔÚÖÜµÄÖÜÈÕ£¬ÌìÊı²î£»
+      long j= date_between.getDateBetweenOfWeek(day);//ï¿½ï¿½È¡Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½Ú¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Üµï¿½ï¿½ï¿½ï¿½Õ£ï¿½ï¿½ï¿½ï¿½ï¿½î£»
      
-      System.out.println("Ö¸¶¨ÈÕÆÚ¾àÀë¸ÃÈÕÆÚÖÜÈÕÌìÊı£º"+j);
+      System.out.println("Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½Ú¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"+j);
       
-      Date day_sunday= date_between.getSundayDay(day);//»ñÈ¡Ö¸¶¨ÈÕÆÚËùÔÚÖÜÈÕ£¬ÈÕÆÚ£»
+      Date day_sunday= date_between.getSundayDay(day);//ï¿½ï¿½È¡Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ£ï¿½ï¿½ï¿½ï¿½Ú£ï¿½
      
       
-     System.out.println("Ö¸¶¨ÈÕÆÚÎª£º"+format.format(day_sunday));
+     System.out.println("Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½"+format.format(day_sunday));
      
-     //²é¿´ÏÂÖÜÖÜÒ»µ½ÖÜÎåÈÕÆÚ£º
+     //ï¿½é¿´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½
     String [] items_nextweek= date_between.getNextWeekDays(day);
      for(int i=0;i<items_nextweek.length;i++){
-    	 System.out.println("ÏÂÖÜÈÕÆÚ£º"+items_nextweek[i]);
+    	 System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½"+items_nextweek[i]);
      }
      
      System.out.println("*********************");
      
-     //²é¿´ÉÏÖÜÖÜÒ»µ½ÖÜÎåÈÕÆÚ£º
+     //ï¿½é¿´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½
      String [] items_lastweek= date_between.getLastWeekdays(day);
       for(int i=0;i<items_lastweek.length;i++){
-     	 System.out.println("ÉÏÖÜÈÕÆÚ£º"+items_lastweek[i]);
+     	 System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½"+items_lastweek[i]);
       }
      
    } 

@@ -1,4 +1,4 @@
-package exception;
+package se.se.exception;
 
 public class ExceptionTest2 {
     public Boolean setAgeArrea(int age) throws Exception{
@@ -7,7 +7,7 @@ public class ExceptionTest2 {
     		
     		flag=true;
     	}else{ 
-			throw new Exception("ÄêÁä²»·ûºÏ18-100Ö®¼ä");
+			throw new Exception("ï¿½ï¿½ï¿½ä²»ï¿½ï¿½ï¿½18-100Ö®ï¿½ï¿½");
     	}
     	System.out.println("********");
     	return flag;
@@ -23,7 +23,7 @@ public class ExceptionTest2 {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
-			System.out.println("Ö»ÓÐÕâÀïÖ´ÐÐÏà¹Ø²Ù×÷£ºfinallyÓï¾ä¶Î");
+			System.out.println("Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½ï¿½ï¿½finallyï¿½ï¿½ï¿½ï¿½");
 			
 		}
 		System.out.println("----");
