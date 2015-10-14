@@ -24,7 +24,7 @@ public class Factory {
     System.out.println(oper.getResult());
   }
   
-}
+} 
 
 class Operation{//操作类  (业务对象)  
   double doubleA=0d;
