@@ -1,4 +1,4 @@
-package design.design.proxys.dynamicproxys;
+package design.design.proxys.dynamicProxys;
 
 /*
  */

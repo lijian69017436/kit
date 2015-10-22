@@ -9,9 +9,9 @@ class CashNormal extends CashSuper{//正常收费
   @Override
   public double acceptCash(double money) {
     return money;
-  }
-  
+  } 
 }
+
 
 class CashRebate extends CashSuper{//打折收费
   private String rebate="";
@@ -23,6 +23,8 @@ class CashRebate extends CashSuper{//打折收费
     return money*(Double.valueOf(rebate));
   }
 }
+
+
 
 class CashActivity extends CashSuper{//活动收费
   private double moneyCondition;
