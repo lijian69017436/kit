@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE    taglib PUBLIC 
+    "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+   "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+<taglib>  <!-- 自定义标签   1:在页面引用这个标签文件, 2:设置这个文件的处理逻辑  3 在页面应用标签   -->
+  <tlibversion>1.0</tlibversion>
+  <jspversion>1.1</jspversion>
+  <shortname>zbxact</shortname>
+  <uri>/zbxact</uri>
+
+  <tag>
+    <name>act</name> 
+    <!-- 标签类  需要 在下边 -->
+    <tagclass>com.zbxsoft.uct.common.ZbxActTag</tagclass>
+    <bodycontent>JSP</bodycontent> <!--这里如果设为empty,则无body -->
+
+    <attribute>
+      <name>actStr</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+
+  </tag>
+</taglib>
+
+<!--   页面引用   给 处理类穿入 一个字符串  然后 在 处理类里边 做逻辑 判断   返回  0 为隐藏  返回 6 为显示
+
+<%@ taglib uri="/zbxact" prefix="zbx"%>
+<zbx:act actStr="/SW_WDGZT/SW_YBRW">
+            <h3 onclick="addTab(this,'已办任务','${ctx}/wflow/task-list-end.action');">已办任务</h3>
+            </zbx:act>
+ -->
+<!-- 
+package com.zbxsoft.uct.common;
+
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.TagSupport;
+
+import com.zbxsoft.uct.auth.AuthTools;
+import com.zbxsoft.uct.auth.LoginUser;
+
+/**
+ * @date 2012-03-02 用标签来控制页面按钮、链接等操作显示/隐藏
+ */
+public class ZbxActTag extends TagSupport {
+
+  private static final long serialVersionUID = -532517444654109642L;
+
+  // 页面组件需要的权限串
+  private String actStr;
+
+  public void setActStr(String actStr) {//把属性注入进来
+    this.actStr = actStr;
+  }
+
+  public int doStartTag() throws JspException {
+    // 获取session中用户
+    LoginUser loginUser = (LoginUser) pageContext.getSession()
+        .getAttribute(AuthTools.SESSION_NAME_USER);
+    if (loginUser == null) {
+      return SKIP_BODY;
+    }
+    // 判断用户是否拥有相应权限
+    if (loginUser.getActFullEnameMap().containsKey(actStr.toUpperCase())) {
+      return EVAL_PAGE;
+    } else {
+      return SKIP_BODY;
+    }
+  }
+}
+
+ -->
