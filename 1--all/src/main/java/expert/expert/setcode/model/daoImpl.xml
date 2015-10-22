@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="importDao--">
+    
+    <sql id="wheresql">
+         <if test="startTime != null and endTime!= null">
+           and  CREATEDATE  &gt;= to_date(#{startTime},'yyyy-MM-dd')    
+           and  CREATEDATE  &lt;=   to_date( #{endTime},'yyyy-MM-dd HH24:MI:SS ')
+         </if>
+         <if test="taxno != null ">
+            and taxno like concat(concat('%', #{taxno}),'%')
+         </if>
+         <if test="billnum != null ">
+            and billnum like concat(concat('%', #{billnum}),'%')
+         </if>
+         <if test="buyname != null ">
+            and buyname like concat(concat('%', #{buyname}),'%')
+         </if>
+         <if test="companyname != null ">
+            and taxno in((select duty as taxno from ODS_SK_invoice_authority where 
+               companyname like concat(concat('%', #{companyname}),'%')
+               ))
+         </if>
+         
+     </sql>
+    <select id="queryAllByPageing"  parameterType="java.util.Map"
+        resultType="importBean--">
+        select *  from (
+             select  e.* , rownum rn   from (  select      
+             guid,billtype,sortcode,
+             billnum,openbillnum,
+             openbilldate,inventory,
+             amountintotal,taxrate,
+             totaltax,
+             buyduty,buyname,
+             buyphone,buybank,openbillman,
+             recheckman,gatherman,
+             encryptversion,ciphertext,cancelflag,
+             repairflag,sellname,sellduty,
+             sellphone,sellbank,
+             sellbillid,remark,
+             printflag,checkcode,
+             checking,taxno,Createdate
+             ,(select companyname from ODS_SK_invoice_authority where duty=taxno) as companyname
+             from ODS_SK_invoice  ) e 
+             where  rownum     &lt;= #{size}
+             <include refid="wheresql"/>   
+        ) where rn  &gt;= #{from}   
+        
+        
+    </select>
+    
+
+     <select id="queryCount"  resultType="int"  parameterType="java.util.Map">
+         <include refid="wheresql"></include>
+     </select>
+     
+     
+      <insert id="insert0---"  parameterType="importBean--"
+         useGeneratedKeys="true" keyProperty="id" keyColumn="id" >
+      </insert>
+      
+      <update id="update0---" parameterType="importBean--">
+
+      </update>
+      
+      <delete id="delete0---" parameterType="int">
+      
+      </delete>
+    
+</mapper>

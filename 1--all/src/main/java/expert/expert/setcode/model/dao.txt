@@ -1,0 +1,23 @@
+package 0--;
+
+import java.util.List;
+import java.util.Map;
+import 3--;
+import org.springframework.stereotype.Repository;
+
+@Repository("1--")
+public interface 1-- {
+ /**
+   * 
+   * @param paramMap map 类型 的 参数
+   * @return 结果集
+   */
+  public List<2--> queryAllByPageing(Map<String, Object> paramMap  );
+
+  public Integer queryCount(Map<String, Object> m);
+  
+  public int insert2--(2-- use);
+  public int update2--(2-- use);
+  public int delete2--(2-- use);
+  public 2-- queryById(2-- use);
+}

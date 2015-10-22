@@ -1,0 +1,39 @@
+package 0--;
+
+import java.util.Map;
+import 3--;
+import 4--;
+
+public interface 1--Service{
+  
+  /**
+   * 
+   * @param paramMap map 类型 的 参数
+   * @return pagination 分页
+   */
+  public Pagination  queryAllByPageing(Map<String, Object> paramMap );
+  /**
+   * 穿入 一个 1--对象 实现插入
+   */
+  public boolean insert1--(1-- use);
+  
+   /**
+    * 根据  1--对象的old id 更新 在bean 里边加入
+    * @param use 是实体bean对象
+    * @return
+    */
+  public boolean update1--(1-- use);
+  
+  /**
+   * 根据  1--对象的 id 删除
+   * @param use 是实体bean对象
+   * @return
+   */
+  public boolean delete1--(1-- use);
+  
+  /**
+   * 查询一个 1--对象
+   */
+  public 1-- queryById(1-- use);
+  
+}

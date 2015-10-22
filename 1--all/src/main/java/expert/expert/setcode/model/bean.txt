@@ -1,0 +1,10 @@
+package 0--;
+import java.io.Serializable;
+public class 1-- implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
+	
+	 
+	
+	
+}

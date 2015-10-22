@@ -1,0 +1,65 @@
+package 0--;
+
+import 3--;
+import 4--;
+import 5--;
+import 6--;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+@Service("1--Service")
+public class 1--ServiceImpl  implements 1--Service{
+
+	@Autowired
+	private 1--Dao adminsDao;
+	
+  public int queryCount(Map<String, Object> paramMap) {
+    return adminsDao.queryCount( paramMap);
+  }
+  
+  public Pagination  queryAllByPageing(Map<String, Object> paramMap) {
+    Pagination pagination=new Pagination();
+    
+    
+    //分页查询
+    List<1--> list = adminsDao.queryAllByPageing( paramMap);
+    pagination.setTotal(adminsDao.queryCount(paramMap));
+    pagination.setRows(list);
+    return pagination;
+  }
+
+  public boolean insert1--(1-- use) {
+    int newAdminid = adminsDao.insert1--(use);
+    if(newAdminid>0)
+      return true;
+    return false;
+  }
+  
+  public boolean update1--(1-- newadmin) {
+    
+    if(adminsDao.update1--(newadmin)>0){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  public boolean delete1--(1-- use) {
+   
+    if(adminsDao.delete1--(use)>0)
+     return true;
+   return false;
+  }
+
+  public 1-- queryById(1-- use) {
+    return adminsDao.queryById(use);
+  }
+
+
+}
