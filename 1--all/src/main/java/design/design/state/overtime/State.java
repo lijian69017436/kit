@@ -1,5 +1,14 @@
 package design.design.state.overtime;
-
+/** context 设置状态 
+ *  
+ * 在 request 中 调用 状态的 一个方法 
+ *   传入  当前对象
+ * 然后在状态中  在用传入的 对象 设置状态  
+ * 下次在请求的 时候  context 里边状态就改变了 
+ *  
+ * @author Administrator
+ *
+ */
 public abstract class State {
   public abstract void Handle(Context context);
 }
@@ -21,9 +30,7 @@ class ConcreteStateB extends State{
 
 class Context{
   private State state;
-  public Context(State state){
-    this.state=state;
-  }
+
   public void setState(State state) {
     this.state = state;
   }
