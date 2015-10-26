@@ -12,6 +12,7 @@ public class Mymemcached {//memcached client
     SockIOPool pool = SockIOPool.getInstance();
     String [] addr={"192.168.200.158:11211"};
     Integer [] weights={3};
+    
     pool.setServers(addr);
     pool.setWeights(weights);
     pool.setInitConn(5);
@@ -24,9 +25,10 @@ public class Mymemcached {//memcached client
     pool.setSocketConnectTO(0);
     pool.initialize();
     
-    
-    me.set("a", "123");
+//    me.add("a", "333", 60);
+//    boolean b=me.set("a", "123",new Date(1000*10));
+//    System.out.println(b+"");
     String s=(String)me.get("a");
-    System.out.println(s);
+    System.out.println(s+"   ");
    }
 }
