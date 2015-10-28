@@ -1,11 +1,10 @@
 package common.li;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 public class Log {
   /** 记录日志的对象. */
-  public static Logger  base=LoggerFactory.getLogger("base");
+  public static Logger  base=Logger.getLogger("base");
   
   
   public static void debug(String line){
