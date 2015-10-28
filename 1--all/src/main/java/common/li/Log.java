@@ -11,6 +11,9 @@ public class Log {
   public static void debug(String line){
 	  base.debug(line);
   }
+  public static void debug(String line,Object... arg){
+    base.debug(String.format(line,arg));
+  }
   
   public static void info(String line){
 	  base.info(line);
@@ -19,6 +22,5 @@ public class Log {
   public static void error(String line){
 	  base.error(line);
   }
-  
 }
  
