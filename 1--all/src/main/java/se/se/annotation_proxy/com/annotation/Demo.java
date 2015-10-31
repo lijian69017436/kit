@@ -1,6 +1,6 @@
 package se.se.annotation_proxy.com.annotation;
 
-@anntation(name="dd�򶹶�",value="dd")
+@anntation(name="nihao ",value="dd")
 public class Demo {
   
 	@anntation(name="aa",value="bb")
