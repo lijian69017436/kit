@@ -1,5 +1,7 @@
 package expert.expert.memcached;
 
+import java.util.Date;
+
 import org.junit.Test;
 
 import com.danga.MemCached.MemCachedClient;
@@ -25,9 +27,8 @@ public class Mymemcached {//memcached client
     pool.setSocketConnectTO(0);
     pool.initialize();
     
-//    me.add("a", "333", 60);
-//    boolean b=me.set("a", "123",new Date(1000*10));
-//    System.out.println(b+"");
+    boolean b=me.set("a", "123",new Date(1000*10));//设置 key  value  过期时间  
+    System.out.println(b+"");
     String s=(String)me.get("a");
     System.out.println(s+"   ");
    }
