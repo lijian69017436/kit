@@ -13,11 +13,11 @@ public class Server {
   public static void main(String args[]) throws IOException {
     ServerSocket serverSocket = new ServerSocket(8080);
     Socket socket = serverSocket.accept();
-    InputStream inputStream = socket.getInputStream();// ͨ��inputSteam��ȡ�ͻ�����ݣ�
+    InputStream inputStream = socket.getInputStream();
     Reader reader = new InputStreamReader(inputStream);
     BufferedReader bufferedReader = new BufferedReader(reader);
 
-    OutputStream outputStream = socket.getOutputStream();// ��ͻ��˷�����ݣ�
+    OutputStream outputStream = socket.getOutputStream();
     PrintWriter writer = new PrintWriter(outputStream);
     // BufferedWriter bufferedWriter=new BufferedWriter(writer);
     String getClientMsg = "";
@@ -25,10 +25,10 @@ public class Server {
 
       if (bufferedReader.ready()){
 
-        getClientMsg = bufferedReader.readLine();// ��ȡ�ͻ�����ݣ�
+        getClientMsg = bufferedReader.readLine();
 
-        System.out.println("���������տͻ������Ϊ��" + getClientMsg);
-        writer.print("hello client");// ��ͻ���д��ݣ�
+        System.out.println("==" + getClientMsg);
+        writer.print("hello client");
         writer.flush();
 
       }
@@ -45,3 +45,4 @@ public class Server {
 
   }
 }
+
