@@ -14,13 +14,14 @@ public class PersonServiceImpl implements PersonsService {
 	
 	
 	public void getAll() {
-		System.out.println(this.getClass().toString()+"----> getAll method");
+		System.out.println(this.getClass().getName()+"----> getAll method");
 		dao.getAll();
 	}
 	
 	public PersonDAO getDao() {
 		return dao;
 	}
+	
 	@Autowired
 	public void setDao(PersonDAO dao) {
 		this.dao = dao;

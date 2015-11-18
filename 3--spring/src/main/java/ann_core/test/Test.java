@@ -15,9 +15,8 @@ public class Test {
 	public static void main(String[] args){
 		ClassPathXmlApplicationContext act=new ClassPathXmlApplicationContext("ann_core/applicationContext.xml");
 	
-		PersonDAO dao=(PersonDAO) act.getBean("personDAO");
 		//dao.getAll();
-		PersonsService ser=(PersonsService)act.getBean("personService");
+		PersonsService ser=act.getBean(PersonsService.class);
 		ser.getAll();
 	}
 }

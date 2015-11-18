@@ -2,6 +2,7 @@ package ann_core.service;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ann_core.dao.PersonDAO;
@@ -10,11 +11,11 @@ import ann_core.dao.PersonDAO;
 @Service("personService")
 public class PersonServiceImpl implements PersonsService {
 	
-	@Resource(name="personDAO") 
+	@Autowired() 
 	private PersonDAO dao;
 	
 	public void getAll() {
-		System.out.println("����service��getall");
+		System.out.println(this.getClass().getName());
 		dao.getAll();
 	}
 

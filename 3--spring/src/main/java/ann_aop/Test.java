@@ -14,7 +14,7 @@ public class Test {
 	public static void main(String[] args){
 		ApplicationContext act=new ClassPathXmlApplicationContext("ann_aop/applicationContext.xml");
 	
-		PersonDAO dao=(PersonDAO) act.getBean(PersonDAO.DAO_NAME);
+		PersonDAO dao= act.getBean(PersonDAO.class);
 		dao.savePerson("d", "00");
 	}
 }

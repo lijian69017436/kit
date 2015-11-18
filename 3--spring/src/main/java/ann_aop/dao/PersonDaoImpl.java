@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 public class PersonDaoImpl implements PersonDAO{
 
 	public void getAll() {
-		System.out.println("����dao getall-----");
+		System.out.println(" dao getall-----");
 	}
 	public void savePerson(String username ,String pwd){
 		System.out.println(username+"\t"+pwd);
