@@ -1,6 +1,0 @@
-
-0,easyui 验证扩展
-1,在html 页面引用这个extendvalidate.js
-2,html 页面 验证扩展  在标签里边 class 为 easyui-validatebox  
-		validtype  名字  为  extendvalidate.js  里边自定义的 规则名字
-3,例子 :  <input type="text" required="true" class="easyui-validatebox"  validType="englishOrNum"  />
