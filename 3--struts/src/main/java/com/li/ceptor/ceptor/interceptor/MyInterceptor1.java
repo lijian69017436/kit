@@ -1,4 +1,4 @@
-package interceptor;
+package com.li.ceptor.ceptor.interceptor;
 
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
@@ -20,7 +20,11 @@ import com.opensymphony.xwork2.interceptor.Interceptor;
  */
 
 public class MyInterceptor1 implements Interceptor{
-//拦截器中的 参数名称
+/**
+   * 
+   */
+  private static final long serialVersionUID = 1L;
+  //拦截器中的 参数名称
   private String java;
   
   //当服务器 重启时 执行的 方法

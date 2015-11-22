@@ -1,8 +1,8 @@
-package action;
+package com.li.base.action;
 
-import com.opensymphony.xwork2.ActionSupport;
+import com.li.base.BaseAction;
 
-public class LoginAction extends ActionSupport{
+public class LoginAction extends BaseAction{
   private static final long serialVersionUID = 1L;
 
   public String execute() throws Exception {

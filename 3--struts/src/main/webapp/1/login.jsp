@@ -8,10 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <a href="../login.do">登陆</a>
+  <a href="/base/login.do">登陆</a>
   
-  <form action="../a.do" method="post">
-            用户名：<input type="text" name="ee.name"/>
+  <form action="/base/submitform.do" method="post">
+           	 用户名：
+    <input type="text" name="ee.name"/>
     <input type="submit" value="用户名提交"/>
   </form>
   
