@@ -1,4 +1,4 @@
-package action;
+package com.li.ognl.ognl.action;
 
 public class Address {
 

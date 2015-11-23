@@ -1,4 +1,4 @@
-package action;
+package com.li.ognl.ognl.action;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -5,9 +5,9 @@
 <struts>
 	<package name="ongl" extends="struts-default">
 	
-		  <action name="ognl" class="action.OgnlAction" >
-	  		<result name="success" >/ognl.jsp</result>
-	  		<result name="input" type="redirect">/index.jsp</result><!-- 拦截器的跳转 -->
+		  <action name="ognl" class="com.li.ognl.ognl.action.OgnlAction" >
+	  		<result name="success" >/3_ognl/ognl.jsp</result>
+	  		<result name="input" type="redirect">/3_ognl/index.jsp</result><!-- 拦截器的跳转 -->
 	  	</action>
 	</package>
 	
