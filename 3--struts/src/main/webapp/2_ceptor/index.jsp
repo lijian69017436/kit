@@ -14,10 +14,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     This is my JSP page. <br>
-		<form action="../action!act" method="post">
-			用户名：<input type="text" name="userName">
-			密码<input type="text" name="pwd">
-			<input type="submit" value="登陆">
-		</form>
+    <a href="/ceptor/ceptor.action">-----</a>
+	<form action="/ceptor/ceptor!act.do" method="post">
+		用户名：<input type="text" name="userName">
+		密码<input type="text" name="pwd">
+		<input type="submit" value="登陆">
+	</form>
   </body>
 </html>

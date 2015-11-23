@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="3--struts">
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/ceptor"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/ognl"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/i18n"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/file"/>
-        <wb-resource deploy-path="/" source-path="/webapp"/>
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <property name="java-output-path" value="/3--struts/target/classes"/>
-        <property name="context-root" value="3--struts"/>
+        <property name="context-root" value="/"/>
     </wb-module>
 </project-modules>

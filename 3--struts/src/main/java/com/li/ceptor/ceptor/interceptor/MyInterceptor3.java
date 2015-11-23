@@ -1,4 +1,4 @@
-package interceptor;
+package com.li.ceptor.ceptor.interceptor;
 
 import java.util.Map;
 
@@ -16,6 +16,11 @@ import com.opensymphony.xwork2.interceptor.MethodFilterInterceptor;
  *
  */
 public class MyInterceptor3 extends MethodFilterInterceptor{
+
+  /**
+   * 
+   */
+  private static final long serialVersionUID = 1L;
 
   protected String doIntercept(ActionInvocation ai) throws Exception {
    System.out.println("before--------------------333");

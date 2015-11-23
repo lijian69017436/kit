@@ -1,4 +1,4 @@
-package interceptor;
+package com.li.ceptor.ceptor.interceptor;
 
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
@@ -9,6 +9,11 @@ import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
  *比 第一个实现 interceptor 接口简单一些
  */
 public class MyInterceptor2 extends AbstractInterceptor{
+
+  /**
+   * 
+   */
+  private static final long serialVersionUID = 1L;
 
   public String intercept(ActionInvocation ai) throws Exception {
     System.out.println("before------------222");
