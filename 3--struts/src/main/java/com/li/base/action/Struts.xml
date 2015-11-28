@@ -5,7 +5,7 @@
 <struts>
 	<package name="" extends="struts-default" namespace="/base">
 		<action name="submitform" class="com.li.base.action.SubmitFromAction" method="yonghuming">
-	  		<result name="success">/struts_1/index.jsp</result>
+	  		<result name="success">/1/index.jsp</result>
 	  	</action>
 	  	
 	  	<action name="login" class="com.li.base.action.LoginAction" >

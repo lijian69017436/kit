@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <a href="i18n!execute"> 后台执行action执行国际化</a>
+  <a href="../i18n!execute.action"> 后台执行action执行国际化</a>
 </body>
 </html>

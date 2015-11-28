@@ -32,18 +32,20 @@ import net.sf.json.JSONObject;
  *
  */
 public class BaseAction extends ActionSupport {
-  HttpServletResponse resp ;
-  HttpServletRequest req;
+  public HttpServletResponse resp ;
+  public HttpServletRequest req;
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-  @Override
+ 
+	@Override
   public void addActionMessage(String aMessage) {
     // TODO Auto-generated method stub
     System.out.println(1);
     super.addActionMessage(aMessage);
   }
+  
   @Override
   public void setContainer(Container container) {
     resp= ServletActionContext.getResponse();
@@ -51,6 +53,13 @@ public class BaseAction extends ActionSupport {
     System.out.println(req.getRequestURI()+"----"+JSONObject.fromObject(req.getParameterMap()));
     super.setContainer(container);
   }
+  
+  
+  
+  
+  
+  
+  
   
 	/*
 	 * 返回结果值

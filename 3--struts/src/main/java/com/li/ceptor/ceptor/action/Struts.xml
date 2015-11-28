@@ -27,7 +27,7 @@
 		 </interceptors>
 		 <!-- 全局拦截器 -->
 		 <default-interceptor-ref name="test"></default-interceptor-ref>
-		 <!-- 如果定义全局拦截器，则表示 当前package下，所有action 都要执行拦截器 
+	<!-- 如果定义全局拦截器，则表示 当前package下，所有action 都要执行拦截器 
 		      写在action 标签内的拦截器，叫局部拦截器，只针对 这个action 起作用
 		      写在 default-interceptor-ref 标签内的叫全局action 针对所有 package下所有action起作用
 		  拦截器 实现原理 ： 

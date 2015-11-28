@@ -41,11 +41,12 @@ public class MyInterceptor1 implements Interceptor{
   /**
    * invocation : 反转的意思
    */
-  public String intercept(ActionInvocation invocation) throws Exception {
-    System.out.println("before----------------1");  
-    System.out.println("我是第一个拦截器");
-    System.out.println(java);
-    String ss=invocation.invoke();//表示拦截器的拦截方法
+  public String intercept(ActionInvocation arg) throws Exception {
+    System.out.println("before--------1--------"+"我是第一个拦截器--注入的第一个参数 :"+java);  
+    
+    
+    String ss=arg.invoke();//表示拦截器的拦截方法
+    
     System.out.println("after----------------1获取了拦截器的执行结果:ss="+ss);  
     return null;
   }

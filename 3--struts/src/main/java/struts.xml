@@ -19,6 +19,7 @@
  	<include file="com/li/base/action/Struts.xml"></include>
  	<include file="com/li/ceptor/ceptor/action/Struts.xml"></include>
  	<include file="com/li/ognl/ognl/action/Struts.xml"></include>
+ 	<include file="com/li/I18n/I18n/Struts.xml"></include>
 </struts>
 	
 	

@@ -10,10 +10,8 @@ import org.apache.struts2.interceptor.ParameterAware;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-@SuppressWarnings("serial")
 public class OgnlAction extends ActionSupport 
 implements ParameterAware,RequestAware,SessionAware,ApplicationAware{
   //对应 参数 来进行拦截的  拦截器   struts2 自带的
@@ -49,12 +47,12 @@ implements ParameterAware,RequestAware,SessionAware,ApplicationAware{
 	  Map<String,String> accounts=new HashMap<String,String>();
 	  accounts.put("建设", "dsaf");
 	  Map<String,String> accounts1=new HashMap<String,String>();
-	  accounts.put("广大", "李健");
+	  accounts1.put("广大", "李健");
 	  Map<String,String> accounts2=new HashMap<String,String>();
-	  accounts.put("中心", "丁丁");
+	  accounts2.put("中心", "丁丁");
 	  Emp emp1=new Emp("张三",30,1009,a1,emails1,accounts);
-	  Emp emp2=new Emp("张三",30,1009,a2,emails1,accounts1);
-	  Emp emp3=new Emp("张三",30,1009,a3,emails1,accounts2);
+	  Emp emp2=new Emp("张三",30,1009,a2,emails2,accounts1);
+	  Emp emp3=new Emp("张三",30,1009,a3,emails3,accounts2);
 	  emps.add(emp1);
 	  emps.add(emp2);
 	  emps.add(emp3);

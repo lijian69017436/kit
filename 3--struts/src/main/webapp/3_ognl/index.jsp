@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
   </head>
   <body>
-    <form action="ognl/ognl!login" method="post">
+    <form action="../ognl/ognl!login.action" method="post">
 			用户名：<input type="text" name="userName">
 			密码<input type="text" name="pwd">
 			<input type="submit" value="登陆">
