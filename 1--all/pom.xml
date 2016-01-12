@@ -15,11 +15,6 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.11</version>
-		</dependency>
 
 		<dependency>
 			<groupId>dom4j</groupId>
@@ -70,6 +65,11 @@
 		</dependency>
 		<!-- memcached end -->
 
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
