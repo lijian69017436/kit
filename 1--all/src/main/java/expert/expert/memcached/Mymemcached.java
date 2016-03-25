@@ -28,8 +28,8 @@ public class Mymemcached {//memcached client
     pool.initialize();
     
     boolean b=me.set("a", "123",new Date(1000*10));//设置 key  value  过期时间  
-    System.out.println(b+"");
     String s=(String)me.get("a");
+    System.out.println(b+"");
     System.out.println(s+"   ");
    }
 }
