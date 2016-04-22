@@ -18,7 +18,7 @@ public abstract class ThirdPartyTask {
    * 生成一个新的taskID
    */
   public ThirdPartyTask() {
-    System.out.println("创建短信实体时候初始化 父类 ");
+    System.out.println("初始化  队列对象  父类 ");
     this.taskID = UUID.randomUUID();
   }
   

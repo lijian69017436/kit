@@ -1,13 +1,12 @@
 package expert.expert.jsoup;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Properties;
 
 import org.jsoup.Connection;
-import org.jsoup.Jsoup;
 import org.jsoup.Connection.Method;
 import org.jsoup.Connection.Response;
+import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
