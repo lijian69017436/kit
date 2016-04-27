@@ -28,7 +28,10 @@ class Boss extends Observable{
   public void Notify(){
     setChanged();
     notifyObservers();
+    setChanged();
+    notifyObservers("主题对象推送的数据:123123"); //通知的数据
   }
+  
 }
 /**
  * 观察者 
@@ -37,7 +40,12 @@ class Boss extends Observable{
  */
 class Stock implements Observer{
   @Override
+/**
+ * @param o 主题
+ * @param arg 数据对象
+ */
   public void update(Observable o, Object arg) {
+    System.out.println(arg); //接受通知的数据
     // TODO Auto-generated method stub
     System.out.println("老板来了 关闭 股票");
   }
