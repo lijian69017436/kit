@@ -14,3 +14,15 @@ public class Person {
     System.out.println("装扮的:"+name);
   }
 }
+
+class xiaocai extends Person{
+  public xiaocai(String name) {
+    // TODO Auto-generated constructor stub
+  }
+  @Override
+  public void show() {
+    // TODO Auto-generated method stub
+    super.show();
+  }
+  
+}
