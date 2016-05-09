@@ -30,18 +30,18 @@ public class QueueConsumer {
 		// Session： 一个发送或接收消息的线程
 		final Session session = connection.createSession(Boolean.TRUE, Session.AUTO_ACKNOWLEDGE);
 		// Destination ：消息的目的地;消息发送给谁.
-		Queue destination=session.createQueue("example.A");
+		Queue destination=session.createQueue("li.test");
 		// 消费者，消息接收者
 		MessageConsumer consumer = session.createConsumer(destination);
 		consumer.setMessageListener(new MessageListener(){//有事务限制
 		    @Override
 		    public void onMessage(Message message) {
 		        try {
-		        	TextMessage textMessage=(TextMessage)message;
-					System.out.println("消费:"+textMessage.getText());
-				} catch (JMSException e1) {
-					e1.printStackTrace();
-				}
+    		        	TextMessage textMessage=(TextMessage)message;
+    		        	System.out.println("消费:"+textMessage.getText());
+    				} catch (JMSException e1) {
+    					e1.printStackTrace();
+    				}
 		        try {
 		            session.commit();
 		        } catch (JMSException e) {

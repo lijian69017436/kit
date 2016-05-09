@@ -28,7 +28,7 @@ public class QueueProducer {
     // Session： 一个发送或接收消息的线程
     Session session = connection.createSession(Boolean.TRUE,Session.AUTO_ACKNOWLEDGE);
     // Queue ：消息的目的地;消息发送给谁.
-    Queue  destination = session.createQueue("example.A");
+    Queue  destination = session.createQueue("li.test");
     
     // MessageProducer：消息发送者
     MessageProducer producer = session.createProducer(destination);

@@ -21,20 +21,11 @@ public abstract class ThirdPartyTask {
     System.out.println("初始化  队列对象  父类 ");
     this.taskID = UUID.randomUUID();
   }
-  
 
   public ThirdPartyTask(UUID taskID) {
     this.taskID = taskID;
   }
-
-  
-  /**
-   * @return the taskID
-   */
   public UUID getTaskID() {
     return taskID;
   }
-  
-  
-
 }

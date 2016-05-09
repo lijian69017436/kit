@@ -11,8 +11,8 @@ public class Test_smsqueue {
     SMSQueue.getInstance().put(partyTask); //压栈  对象
     
     partyTask partyTask1 = new partyTask();
-    partyTask.setName("李建");
-    SMSQueue.getInstance().put(partyTask);
+    partyTask1.setName("李建");
+    SMSQueue.getInstance().put(partyTask1);
     
     partyTask partyTask2 = new partyTask();
     partyTask2.setName("理想");
