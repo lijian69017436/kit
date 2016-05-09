@@ -1,4 +1,4 @@
-package jdkprotxy.dao;
+package s.java.base.jdkprotxy.dao;
 
 
 public class PersonDAOImpl implements PersonDAO{

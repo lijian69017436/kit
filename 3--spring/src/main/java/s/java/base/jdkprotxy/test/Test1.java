@@ -1,9 +1,9 @@
-package jdkprotxy.test;
+package s.java.base.jdkprotxy.test;
 
 
-import jdkprotxy.dao.JDKProxy;
-import jdkprotxy.dao.PersonDAO;
-import jdkprotxy.dao.PersonDAOImpl;
+import s.java.base.jdkprotxy.dao.JDKProxy;
+import s.java.base.jdkprotxy.dao.PersonDAO;
+import s.java.base.jdkprotxy.dao.PersonDAOImpl;
 
 
 

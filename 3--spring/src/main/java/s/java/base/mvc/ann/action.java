@@ -1,4 +1,4 @@
-package mvc.ann;
+package s.java.base.mvc.ann;
 
 public class action {
 
