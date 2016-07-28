@@ -2,6 +2,11 @@ package common.li.util;
 
 import java.util.ResourceBundle;
 
+/**
+ * properties  文件 读取工具类
+ * @author li
+ *
+ */
 public class ConfigPro {
 	
 
