@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xmlns:web="http://java.sun.com/xml/ns/javaee" 
- xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-  <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
-  </welcome-file-list>
-  
-  
+	xmlns:web="http://java.sun.com/xml/ns/javaee" xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+
 
 	<!-- 加载spring -->
 	<listener>
@@ -16,16 +17,17 @@
 	<listener>
 		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
 	</listener>
-  
-  
-  	<!-- 加载spring mvc -->
+
+
+	<!-- 加载spring mvc -->
 	<servlet>
 		<description>spring mvc servlet</description>
 		<servlet-name>springMvc</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<description>spring mvc 配置文件</description>
-			<param-value>classpath:mvc/ann/spring-mvc.xml</param-value>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:s/java/base/mvc/ann/spring-mvc.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
@@ -33,13 +35,13 @@
 		<servlet-name>springMvc</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
-  
-  
-  
-  
-  
-  
-  	<!-- 字符集过滤 -->
+
+
+
+
+
+
+	<!-- 字符集过滤 -->
 	<filter>
 		<description>字符集过滤器</description>
 		<filter-name>encodingFilter</filter-name>
@@ -61,5 +63,5 @@
 		<session-timeout>15</session-timeout>
 	</session-config>
 
-  
+
 </web-app>
