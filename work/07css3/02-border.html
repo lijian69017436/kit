@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	边框</title>
+	<style type="text/css">
+		
+		.item{
+			border: 1px solid red;
+			width: 180px ;
+			height: 180px; 
+
+		}
+		.item:nth-child(1) .border-radius{
+			width: 180px ;
+			height: 90px; 
+			border-bottom-width: 90px;
+			border-bottom-color: green;
+			border-bottom-style: solid;
+			background-color: red;
+			border-radius: 90px;
+		}
+		.item:nth-child(1) .border-radius::after,
+		.item:nth-child(1) .border-radius::before{
+			content: '';
+			position: absolute;
+			top:40;
+			width: 20px;
+			height: 20px;
+			border-width: 35px;
+			border-style: solid;
+			border-radius: 45px;
+
+		}
+		.item:nth-child(1) .border-radius::before{
+			border-color: green;
+			background-color: red;
+		}
+		.item:nth-child(1) .border-radius::after{
+			right: 0;
+			border-color: red;
+			background-color: green;
+		}
+		.item:nth-child(2) .border-radius{
+			height: 90px;
+			background: red;
+			border-radius: 6px;
+		}
+		.item:nth-child(2) .border-radius::after{
+			content: '';
+			width: 0;
+			height: 0;
+			border-width: 10px;
+			border-style: solid;
+			border-color: transparent;
+			border-right-color:green; 
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.item:nth-child(3) .border-radius{
+			
+			width: 40px;
+			height: 50px;
+			border-width: 45px 0 45px 70px;
+			border-style: solid;
+			border-radius: 0 0 60px 0;
+			border-color: red;
+		}
+
+
+	</style>
+
+
+
+</head>
+<body>
+	<div>
+		<div class="item">
+			<div class="border-radius"></div>
+		</div>
+		<div class="item">
+			<div class="border-radius"></div>
+		</div>
+		<div class="item">
+			<div class="border-radius"></div>
+		</div>
+	</div>
+</body>
+</html>
