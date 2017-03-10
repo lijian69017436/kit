@@ -1,0 +1,39 @@
+/*
+* 我们的自定义样式
+* @Author: iceStone
+* @Date:   2015-12-12 10:56:34
+* @Last Modified by:   iceStone
+* @Last Modified time: 2015-12-12 17:51:08
+*/
+
+/*公共样式*/
+body{
+  font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+}
+
+
+/*头部区域*/
+#header{
+  height: 200px;
+  background-color: #f0f0f0;
+}
+
+
+/*测试样式区域*/
+section{
+  height: 200px;
+  background-color: #fff;
+
+}
+section:nth-child(2n+1){
+  /*选择到第1,3,5.....*/
+  
+}
+
+
+
+/*脚注区域*/
+
+#footer{
+
+}

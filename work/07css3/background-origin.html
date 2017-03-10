@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>裁剪北京图片</title>
+	<style type="text/css">
+	body{
+		width: 400;
+		height: 400;
+	}
+		.clip-img{
+			width: 90px;
+			height: 90px;
+			margin: 100px 200px;
+			position: relative;
+			padding: 10px;
+			border:2px red;
+			border-style: solid;
+			background-image: url(border.png);
+			background-repeat: round;
+			background-origin: padding-box;
+
+		}
+		.clip-img::after,
+		.clip-img::before{
+			content: '';
+			position: absolute;
+			width: 90px;
+			height: 90px;
+			margin: 100px 200px;
+			/*border:2px solid red;*/
+			padding: 10px;
+
+		}
+
+		.clip-img::before{
+			left:-100px;
+			/*background-color: #FFF;*/
+			background-image: url(border.png);
+			background-clip: content-box;
+		
+			background-repeat: round;
+			background-origin: padding-box;
+		}
+
+		.clip-img::after{
+			background-color: red;
+			/*box-sizing: border-box;*/
+			background-clip: content-box;
+			background-origin: content-box;
+			right: -100px;
+		}
+
+		
+	</style>
+</head>
+<body>
+	<div class="clip-img"></div>
+</body>
+</html>
