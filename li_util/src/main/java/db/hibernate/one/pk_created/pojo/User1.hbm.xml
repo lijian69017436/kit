@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"> 
+<hibernate-mapping>
+  <class  name="pk_created.pojo.User1" table="t_user1">
+    <id name="id" column="u_id" >
+			    <!--
+					        采用数据库生成的主键，用于long，shout，int类型生成的唯一标示
+					        在mysql 和sqlserver 中是自增字段，但是不能用于oracle数据库不支持
+					        oracle数据库支持的是sequence
+					        identity 属于常用的主键生成策略
+	       
+			     -->
+			     <generator class="identity"></generator>
+				     <!-- 
+									            如果没有指定这个参数，那么hibernate会默认访问一个sequence
+									            这个sequence是hibernate提供的，叫hinbernate_sequence
+									            通过haibernate API的了解，由org.hibernate.id.SequenceGenerator
+									            提供的oracle主键sequence来生成主键序列，如果比给定这个参数
+									            那么会报错
+	          <generator class="sequence">									            
+			         <param name="user_seq"> </param>  要给sequence起名字 
+				    </generator>   -->
+    </id>
+    <property name="name" column="u_name" length="20"/>
+    <property name="createDate" column="create_date"/>
+    <property name="age" length="3"></property>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- 配置数据库的 一个 连接 -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://123.117.136.161:3306/test</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">li123654</property>
+		<!-- 数据库 的方言   dialect 方言 包-->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="show_sql">true</property><!--在 控制台显示 sal 语句  -->
+		<property name="hbm2ddl.auto">update</property><!-- 自动修改 -->
+		
+		<!-- 指定映射文件的 路径  -->
+		<mapping resource="*/pojo/User.hbm.xml"/>
+	
+	</session-factory>
+</hibernate-configuration>

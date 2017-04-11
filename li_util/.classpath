@@ -22,5 +22,8 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="lib/classes12.jar"/>
+	<classpathentry kind="lib" path="lib/zbxsoft-base-1.2.4.jar"/>
+	<classpathentry kind="lib" path="lib/zbxsoft-tools-1.2.4.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

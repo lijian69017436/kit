@@ -1,0 +1,9 @@
+t_user表            t_user_kecheng表               t_kecheng
+id   name   userid  kechengid     kis    kname       	
+1      2       1       2     	      1      java    
+							 1				3		         2       c   
+2                       1
+ 单项 ;由用户加载课程
+ many2many                                               
+  关系 由用户 端来维护
+  代码也是写在 user端                                                   
