@@ -7,11 +7,11 @@ import java.util.Iterator;
 import java.util.Map;
 
 import org.hibernate.SessionFactory;
-import org.hibernate.annotations.Where;
 import org.junit.Test;
 
 import com.li.li.Photo;
 import com.li.li.PhotoDao;
+import com.li.li.jdbc.HibernateSessionFactory;
 import com.zbxsoft.core.mapper.CollectionMapper;
 import com.zbxsoft.core.orm.Page;
 
@@ -31,6 +31,9 @@ public class Example {
 		
 		
 		dao.getAll(); 
+		
+		//1, 根据sql查询 一条记录 
+		//
 	}
 	
 	@Test

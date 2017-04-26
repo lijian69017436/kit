@@ -1,4 +1,4 @@
-package com.li.li.test;
+package com.li.li.jdbc;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -20,7 +20,7 @@ public class HibernateSessionFactory {
      * in the default package. Use #setConfigFile() to update 
      * the location of the configuration file for the current session.   
      */
-    private static String CONFIG_FILE_LOCATION = "com/li/li/test/hibernate.cfg.xml";
+    private static String CONFIG_FILE_LOCATION = "com/li/li/jdbc/hibernate.cfg.xml";
 	private static final ThreadLocal<Session> threadLocal = new ThreadLocal<Session>();
     private  static Configuration configuration = new Configuration();    
     private static org.hibernate.SessionFactory sessionFactory;

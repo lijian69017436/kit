@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import com.li.li.Photo;
 import com.li.li.PhotoDao;
+import com.li.li.jdbc.HibernateSessionFactory;
 import com.zbxsoft.core.orm.Page;
 import com.zbxsoft.core.utils.IdUtils;
 import com.zbxsoft.core.utils.PropertiesUtils;
