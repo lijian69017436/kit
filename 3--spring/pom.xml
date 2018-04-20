@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>lijian</groupId>
-  <artifactId>base</artifactId>
+  <artifactId>3--spring</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>base Maven Webapp</name>
@@ -100,6 +100,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>spring</finalName>
+		<finalName>3--spring</finalName>
 	</build>
 </project>

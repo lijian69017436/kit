@@ -7,7 +7,7 @@
 		<version>1.2.4</version>
 	</parent> -->
 	<groupId>com.lijian</groupId>
-	<artifactId>base</artifactId>
+	<artifactId>li_util</artifactId>
 	<version>1.2.4</version>
 	<name>lijian's Core Module</name>
 	<url>http://www.lijianblog.com/</url>
