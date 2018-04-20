@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" 
+       xsi:schemaLocation="
+       	  http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/aop 
+       	  http://www.springframework.org/schema/aop/spring-aop-2.5.xsd 
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+	
+	<bean id="sec" class="xml_aop.dao.Security"></bean>
+	<!-- 所有的通知都必须在aop：config的标签中 -->
+	<aop:config>
+	<!-- 配置切面   
+		在控制台上显示通知的内容的对象
+	 -->
+		<aop:aspect ref="sec">
+		<!-- 在哪里加入切面
+			expression=""表达式告诉spring 从哪里加入事务管理
+		 	execution 从哪里开始执行
+		 	com.demo.dao..*.save*(..)
+		 		从com.demo.dao包开始执行事务管理
+		 			..表示这个包下的子包，类等一切可以执行的文件
+		 			*表示所有的类名称
+		 			.这个类下的内容
+		 			以save开头的方法
+		 带参数的
+			<aop:pointcut id="userMangerPointcut" expression="execution(* com.demo.dao..*.g*(..)) and args(username,psw)"/>
+		不带参数的
+		-->	<aop:pointcut id="userMangerPointcut" expression="execution(* xml_aop.dao..*.g*(..))"/>
+			<!-- 声明前置通知 ，在匹配方法执行前运行 -->
+			<aop:before method="checkSecutity" pointcut-ref="userMangerPointcut" />
+			<!-- 方法运行期 
+			<aop:after/>-->
+			<!-- 方法完全运行后通知  
+			<aop:after-returning/>-->
+			<!-- 运行后异常通知 
+			<aop:after-throwing />-->
+		</aop:aspect>
+	</aop:config>
+	<bean id="perDao" class="xml_aop.dao.PersonDaoImpl" />
+
+</beans>

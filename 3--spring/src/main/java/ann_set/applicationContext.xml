@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+    <context:annotation-config/>
+<!-- 注解方式注入  1：添加注解解析器 
+	1.添加context 的命名空间
+		xmlns:context="http://www.springframework.org/schema/context"
+	    在xsi:schemaLocation下面添加
+		http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-2.5.xsd
+        
+    2.添加标签
+    	<context:annotation-config/>
+    3.添加注解解析器
+	 -->
+	<bean id="personDAO" class="ann_set.dao.PersonDAOImpl" />
+	<bean id="personServiceImpl" class="ann_set.service.PersonServiceImpl">
+	<!--<property name="dao" >
+			<ref bean="personDAO"/>
+		</property>
+	-->
+    </bean>
+</beans>
