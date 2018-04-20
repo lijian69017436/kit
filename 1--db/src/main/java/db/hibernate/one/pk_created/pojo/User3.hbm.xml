@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"> 
+<hibernate-mapping>
+  <class  name="pk_created.pojo.User2" table="t_user2">
+    <id name="id" column="u_id" >
+        <!-- 由hibernate 在内存中生成主键，每次自加1不依赖于底层数据库，所有数据库都可以使用
+			            问题：同一时间内，只能有一个hibernate 应用进程访问数据库，否则就会产生冲突
+			              不能再集群情况加使用
+         <generator class="increment"></generator>
+         -->
+         <!-- 会产生一个 128位的一个算法 ，自增
+         <generator class="uuid.hex"></generator>
+          -->
+          <!-- assigned:由应用程序给定主键，就是人为手动给定主键值，就是String类型
+         <generator class="assigned"></generator>
+           -->
+           <!-- 
+          foreign ：外键           
+          <generator class="foreign"></generator>
+            -->
+            <!-- select：由触发器生成主键   早先的数据库主键生成机制，现在少用了
+            <generator class="select"></generator>
+            -->
+            
+    </id>
+    <property name="name" column="u_name" length="20"/>
+    <property name="createDate" column="create_date"/>
+    <property name="age" length="3"></property>
+  </class>
+</hibernate-mapping>

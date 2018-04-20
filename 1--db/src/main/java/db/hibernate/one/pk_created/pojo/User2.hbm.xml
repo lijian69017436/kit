@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"> 
+<hibernate-mapping>
+  <class  name="pk_created.pojo.User2" table="t_user2">
+    <id name="id" column="u_id" >
+     <!-- 用hilo 能够 在一个映射 多生成一个表 多生成的表 主键参照 id  -->
+       <!--  <generator class="hilo">
+          <param name="table">my_unique_key</param>
+          <param name="column" >next_hi</param>
+          <param name="max_lo" >100</param>
+        </generator>
+         -->
+         <!-- 会根据 数据库 来生成自增长，从3个中选择一个：identity，sequence，hilo 
+          native 将主键的生成，交给数据库来完成 ，hibernate是不管的
+      eqhilo：sequence+hilo oracle 很少使用
+         <generator class="seqhilo"></generator>
+         
+  -->       
+  
+      <generator class="native"></generator>
+    </id>
+    <property name="name" column="u_name" length="20"/>
+    <property name="createDate" column="create_date"/>
+    <property name="age" length="3"></property>
+  </class>
+</hibernate-mapping>

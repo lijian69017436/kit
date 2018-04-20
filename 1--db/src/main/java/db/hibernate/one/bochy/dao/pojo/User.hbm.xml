@@ -1,0 +1,25 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ <!-- catalog 连接数据库的名字 
+ 			default-cascade="none" 默认没有级联操作
+ 			default-lazy="true"  数据库中延迟加载   默认是延迟加载 
+ -->
+<hibernate-mapping  >
+	<!-- class  映射文件
+	配置一个  对象关系映射配置 
+		name ：实体类权限定名
+		table：数据库表
+		schema:数据库
+	-->
+	<class name="base_hibernateMvc.pojo.User" table="user" schema="test"><!-- 配置 对象 文件路径   数据库中的 表 -->
+			<!-- 配置唯一建 -->
+			<id name="id" column="id" length="32"><!-- 如果不写column，默认列名称与属性名相同 -->
+				<!-- 主键生成策略   自增 -->
+				<generator class="increment"></generator>
+			</id>
+			<!-- 普通的字段 配置 -->
+			<property name="username" column="username" type="string" ></property>
+			<property name="pwd" column="pwd"></property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.bochy.entity.Emp" schema="scott" table="emp"  >
+   
+       <id name="empno" type="java.lang.Integer" >
+           <column name="empno" precision="10" scale="0"></column>
+             <generator class="assigned">
+           </generator>
+       </id>
+       <property name="ename" type="java.lang.String"  >
+          <column name="ename" length="20" not-null="true"></column>
+       </property>
+        <property name="mgr" type="java.lang.Integer"  >
+          <column name="mgr"  ></column>
+       </property>
+        <property name="job" type="java.lang.String"  >
+          <column name="job" length="20" not-null="true"></column>
+       </property>
+        <property name="sal" type="java.math.BigDecimal"  >
+          <column name="sal"  ></column>
+       </property>
+        <property name="hiredate" type="java.lang.String"  >
+          <column name="hiredate" length="20" not-null="true"></column>
+       </property>
+        <property name="comm" type="java.math.BigDecimal"  >
+          <column name="comm"  ></column>
+       </property>
+        <property name="deptno" type="java.lang.Integer"  >
+          <column name="deptno"  ></column>
+       </property> 
+  </class>
+  <sql-query name="selectEmpByProcedure" callable="true">
+     <return class="com.bochy.entity.Emp">
+          <return-property name="empno" column="empno"></return-property>
+          <return-property name="ename" column="ename"></return-property>
+          <return-property name="job" column="job"></return-property>
+          <return-property name="mgr" column="mgr"></return-property>
+          <return-property name="hiredate" column="hiredate"></return-property>
+          <return-property name="sal" column="sal"></return-property>
+          <return-property name="comm" column="comm"></return-property>
+          <return-property name="deptno" column="deptno"></return-property>
+     </return>
+     {call EmpHibernateProcedure(?,?)}
+  </sql-query>
+</hibernate-mapping>
