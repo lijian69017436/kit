@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- 配置长量 -->
+	<!-- action 后缀名 默认是action -->
+  	<constant name="struts.action.extension" value="do,action"></constant>
+	<!-- 动态方法调用 -->
+  	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+	<!-- 是否重新加载struts。xml文件 -->
+  	<constant name="struts.configuration.xml.reload" value="true"></constant>
+	<!-- 是否使用struts开发模式 -->
+  	<constant name="struts.devMode" value="false"></constant>
+	<!-- 是否开启静态内容缓存 -->
+  	<constant name="struts.serve.static.browserCache" value="false"></constant>
+   
+   
+ 	<include file="com/li/base/action/Struts.xml"></include>
+ 	<include file="com/li/ceptor/ceptor/action/Struts.xml"></include>
+ 	<include file="com/li/ognl/ognl/action/Struts.xml"></include>
+ 	<include file="com/li/I18n/I18n/Struts.xml"></include>
+</struts>
+	
+	

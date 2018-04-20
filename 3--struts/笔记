@@ -1,0 +1,17 @@
+1步 配置 file 过滤器  路径是核心包下的 过滤器(* 包必须导入正确 有下划线)
+2自建 struts.xml  配置文件  在 src下  （名字不能错误）
+   struts 的配置  在核心包下 变的struts 2.1 dtd 下边 找到 doctype 内容粘贴过来 
+			    <?xml version="1.0" encoding="UTF-8"?>
+						 <!DOCTYPE struts PUBLIC
+							"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+							"http://struts.apache.org/dtds/struts-2.1.dtd">
+		点击 跳转项--》到 struts.xml配置下找到 对应 action ---》在找到 java代码 类 执行代码 返回	结果集
+			结果集用name 来接	然后执行跳转页面或者 跳转 action 
+			参数传值  表单有对应的name 在 action 里边 封装name 属性 然后在 另一个页面用￥{}取值 name 是什么取值的时候就是什么
+				如果 吧name 封装成类   a的get  set方法  那么调用时候 就用  1.a 取值也是 1.a
+			
+<include file >	 struts整合			
+						
+							
+							
+							

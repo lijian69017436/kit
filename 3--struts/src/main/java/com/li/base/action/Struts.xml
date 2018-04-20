@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="" extends="struts-default" namespace="/base">
+		<action name="submitform" class="com.li.base.action.SubmitFromAction" method="yonghuming">
+	  		<result name="success">/1/index.jsp</result>
+	  	</action>
+	  	
+	  	<action name="login" class="com.li.base.action.LoginAction" >
+	  		<!-- name： 是访问action的  一个映射
+	  			class： 是一个实体路径 
+	  			method:自定义方法的名字
+	  			result： 是返回结果视图
+	  			name：和action类中结果码对应，如果没有name默认接受的是success的视图
+	  			type:结果视图类型
+	  				redirect  dispatcher  页面跳转
+					redirectAction  chain  action跳转
+					stream  流  上传下载
+	  		-->
+	  		<result name="success">/1/index.jsp</result><!-- 接受从action。java返回的值  在跳转到路径或者页面 -->
+	  		<result name="登陆" type="redirect">/1/index.jsp</result><!-- 接受从action。java返回的值  在跳转到路径或者页面 -->
+	  	</action>
+	</package>
+</struts>

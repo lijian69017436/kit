@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="gbk"></constant>
+	<!-- 临时保存路径，如果文件夹不存在会创建 -->
+	<constant name="struts.multipart.saveDir" value="e:\\temp"></constant>
+	<!-- 上传文件的最大长度 -->
+	<constant name="struts.multipart.maxSize" value="10240000"></constant>
+	<package name="default" extends="struts-default" >
+		<action name="upload" class="action.UploadAction">
+	  		<!-- 通知拦截器，action 可以接收文件的最大长度 -->
+	  			<param name="fileUpload.maximumSize">1024000</param>
+	  		<!-- 设置上传文件的类型，如果没有下列设置则可以上传任意类型 -->
+	  			<param name="fileUpload.allowedType">image/gif,image/jpeg</param>
+	  		<result name="s">/success.jsp</result>
+	  		<result name="input">/upload.jsp</result>
+	  		<param name="uploadDir">/WEB-INF/UploadFiles</param>
+	  	</action>
+	  	
+	  	
+	  	<action name="uploadduo" class="action.DuoUpload">
+	  		<result name="sss">/duosucc.jsp</result>
+	  		
+	  	</action>
+	  	
+	  	
+	  	<action name="uploadfile" class="action.UploadAction">
+	  		<result>/uploadresult.jsp</result>
+	  		<result name="download" type="stream">
+	  			<param name="contentType">application/msword</param>
+	  			<param name="inputName">inputStream</param>
+	  			<param name="contentDispos.tion">filename="${downFileName}"</param>
+	  		</result>
+	  	</action>
+	</package>
+</struts>
