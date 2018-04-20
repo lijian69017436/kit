@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>分页插件</title>
+
+</head>
+<body>
+	<div class="padlr" align="right">
+		<ul id="data-pagination" class="pagination">
+			<li class="disabled"><a href="#">&laquo;</a></li>
+			<li class="active"><a href="#">1</a></li>
+			<li><a href="#">&raquo;</a></li>
+		</ul>
+	</div>
+
+</body>
+
+
+<link href="../../jquery/bootstrap/css/bootstrap.css" rel="stylesheet">
+<script src="../../jquery/jquery-1.8.0.js" type="text/javascript"></script>
+<script src="bootstrap-paginator.js" type="text/javascript"></script>
+<script>
+
+
+     var ctx=$("#ctx").text();
+     var ajax_url=ctx+'/new/queryAllProjectInfolist.action';
+     $(function(){
+     	//alert(1);
+     	search();
+     })
+
+     var pageNum=1;
+     //页面查询方法
+     function search(){
+     	console.info("template_status:"+$(".select_template_status").val());
+     	var template_status=$(".select_template_status").val();
+     	var templateName=$("#search_info").val();
+     	$.ajax({
+     	    url : ajax_url,
+     	    dataType : "json",
+     	    data : {
+     	    	pageNum:pageNum,
+     	    	numPerPage:5,
+     	    	template_status:template_status,
+     	    	templateName:templateName
+     	    	},
+     	    cache : false,
+     	    type : "post",
+     	    success : function(data) {
+     	        console.info(data.dataList.length);
+     	        initDatalist(data);
+     	        setpage(data.page.current,data.page.total);
+     	        var arra = $('#data-pagination').bootstrapPaginator("getPages") ;
+     	    	console.info(arra);
+     	    }
+     	});
+     }
+
+     //根据反回数据 初始化#datalist  div内容
+     function initDatalist(data){
+     	$("#datalist").html('');
+     	 var datalist=data.dataList;
+          for(var i=0;i<datalist.length;i++){
+          	var row=datalist[i];
+          	$("#datalist").append(''+
+          			'<div id=datalist_'+row.templateId +'>'+
+     					'<h4>模板名称:'+row.templateName+'</h4>'+
+     					'<hr>'+
+     					'<div></div>'+
+     					'<div></div>'+
+     					'<div></div>'+
+     					'<div></div>'+
+     					'<div></div>'+
+     					'<div></div>'+
+     					'<div></div>'+
+     				'</div>'	);
+          	if(null !=row.templateStatus && ''!=row.templateStatus){
+          		//console.info(row.templateStatus);
+          		var status=row.templateStatus-1!=0?row.templateStatus-1:0;
+          		$("#datalist_"+row.templateId+" div:gt("+status+")").css("background-color","#fdf7f7")
+          	}
+          }
+     }
+
+     //显示分页  传入 当前页 和总页数
+     function setpage(pageNumber,pageSize){
+         var element = $('#data-pagination');
+         options = {
+             bootstrapMajorVersion:3, //对应的bootstrap版本
+             currentPage: pageNumber, //${currentPage}, //当前页数，这里是用的EL表达式，获取从后台传过来的值
+             numberOfPages: 5, //每页页数
+             totalPages: pageSize ,//${totalPages }, //总页数，这里是用的EL表达式，获取从后台传过来的值
+             shouldShowPage:true,//是否显示该按钮
+             itemTexts: function (type, page, current) {//设置显示的样式，默认是箭头
+                 switch (type) {
+                     case "first":
+                         return "首页";
+                     case "prev":
+                         return "上一页";
+                     case "next":
+                         return "下一页";
+                     case "last":
+                         return "末页";
+                     case "page":
+                         return page;
+                 }
+             },
+             //点击事件
+             onPageClicked: function (event, originalEvent, type, page) {
+             	pageNum=page;//当前页
+             	search();   //查询数据
+             }
+         };
+         element.bootstrapPaginator(options);
+     }
+}
+
+</script>
+</html>

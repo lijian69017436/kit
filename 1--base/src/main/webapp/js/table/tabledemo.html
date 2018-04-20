@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<div id="tablelist" >
+	1
+	</div>
+
+</body>
+
+
+<link href="../../jquery/bootstrap/css/bootstrap.css" rel="stylesheet">
+<script src="../../jquery/jquery-1.8.0.js" type="text/javascript"></script>
+<script src="bootstrap-table.js" type="text/javascript"></script>
+<!-- <script src="bootstrap-table-zh-CN.js" type="text/javascript"></script>
+ -->
+
+<script>
+	var ctx=$("#ctx").text();
+	var ajax_url=ctx+'/new/queryAllProjectInfolist.action';
+	
+	$(function(){
+		
+		inittable();
+		
+		
+	})
+	
+	function inittable(){
+		$("#tablelist").bootstrapTable({
+		/* 	dataType: "json",
+	        method: 'post',
+	        contentType: "application/x-www-form-urlencoded", */
+	       /*  cache: false, */
+	       // url:url_getProjectSection,
+	      //  queryParams: ,
+//	        sortName:sort,  //排序列名
+//	        sortOrder: sortOrder,//排位命令（desc，asc）
+	       /*  pagination:true,
+	        sidePagination:'server',
+	        pageNumber:1,
+	        pageSize:10,
+	        pageList:[10], */
+		    columns: [
+		         {field: 'sectionId', title: 'sectionId', halign:"center", align:"center"}
+		    	,{field: 'localProjectName', title: 'localProjectName', halign:"center", align:"center"}
+		    	,{field: 'localProjectNumber', title: 'localProjectNumber', halign:"center", align:"center"}
+		    ],
+		    data:[{
+		    	sectionId:'123',
+		    	localProjectName:'[[[[]]]]',
+		    	localProjectNumber:'---'
+		    }],
+		    onLoadSuccess:function(data){
+		    	alert(1);
+		    }
+		})
+	}
+
+
+
+</script>
+</html>

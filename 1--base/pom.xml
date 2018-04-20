@@ -1,0 +1,91 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.lijian</groupId>
+  <artifactId>base1</artifactId>
+  
+  <packaging>war</packaging>
+  <version>0.0.2</version>
+  <name>js Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  
+	<properties>
+		<fastjson.version>1.2.7</fastjson.version>
+  </properties>
+  <dependencies>
+    
+    
+    <dependency>
+    	<groupId>javax.servlet.jsp</groupId>
+    	<artifactId>jsp-api</artifactId>
+    	<version>2.1</version>
+    </dependency>
+    <dependency>
+    	<groupId>javax.servlet</groupId>
+    	<artifactId>servlet-api</artifactId>
+    	<version>2.5</version>
+    </dependency>
+	 <dependency>
+	 	<groupId>jstl</groupId>
+	 	<artifactId>jstl</artifactId>
+	 	<version>1.2</version>
+	 </dependency>
+	 <dependency>
+	 	<groupId>net.sf.json-lib</groupId>
+	 	<artifactId>json-lib</artifactId>
+	 	<version>2.2.3</version>
+	 </dependency>
+	 
+	 <dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
+		</dependency>
+	 
+	 <dependency>
+	 	<groupId>org.freemarker</groupId>
+	 	<artifactId>freemarker</artifactId>
+	 	<version>2.3.19</version>
+	 </dependency>
+	 <dependency>
+	 	<groupId>junit</groupId>
+	 	<artifactId>junit</artifactId>
+	 	<version>4.12</version>
+	 </dependency>
+	
+	<!-- upload jar 上传文件 begin -->
+	 <dependency>
+	 	<groupId>commons-io</groupId>
+	 	<artifactId>commons-io</artifactId>
+	 	<version>2.0</version>
+	 </dependency>
+ 	<dependency>
+		<groupId>commons-fileupload</groupId>
+		<artifactId>commons-fileupload</artifactId>
+		<version>1.2.2</version>
+	</dependency>
+	<!--upload jar  end -->
+	
+			<!-- HTML 解析器，提供 HTTP服务 -->
+		<dependency>
+		    <groupId>org.jsoup</groupId>
+		    <artifactId>jsoup</artifactId>
+		    <version>1.8.3</version>
+		</dependency>
+  </dependencies>
+  <build>
+	   <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+              <source>1.6</source>
+              <target>1.6</target>
+            </configuration>
+          </plugin>
+        </plugins>
+		<finalName>base</finalName>
+	</build>
+</project>
