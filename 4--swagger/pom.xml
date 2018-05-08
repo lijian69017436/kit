@@ -29,11 +29,6 @@
 	 	<version>1.2</version>
 	 </dependency>
 	 <dependency>
-	 	<groupId>net.sf.json-lib</groupId>
-	 	<artifactId>json-lib</artifactId>
-	 	<version>2.2.3</version>
-	 </dependency>
-	 <dependency>
 	 	<groupId>org.freemarker</groupId>
 	 	<artifactId>freemarker</artifactId>
 	 	<version>2.3.19</version>
@@ -62,6 +57,41 @@
 		</dependency>
 		
 		<!-- swagger2 end -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>4.2.4.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>1.0.0.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-annotations</artifactId>
+			<version>3.5.5-Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>4.3.5.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.8</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>4.3.8.RELEASE</version>
+		</dependency>
   </dependencies>
   <build>
 	   <plugins>
@@ -69,8 +99,8 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
             <configuration>
-              <source>1.6</source>
-              <target>1.6</target>
+              <source>1.7</source>
+              <target>1.7</target>
             </configuration>
           </plugin>
         </plugins>

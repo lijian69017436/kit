@@ -221,7 +221,7 @@ public class Main {
 			
 		String url= "https://sojump.com/handler/processjq.ashx?curid=16018239&starttime=2017%2F8%2F24%209%3A28%3A08&source=directphone&submittype=1&rn=1022712535.40799416&t=1503538162650";
 		//url+="&submitdata=1$地方}2$2}3$1}4$3}5$1}6$2}7$2}8$4}9$1}10$1<1,2<1,3<1,4<1,5<1,6<1}11$1}12$2}13$2}14$2}15$4}16$2}17$4}18$2}19$1}20$2}21$2}22$2}23$1}24$5}25$2}26$地方";
-		Map<String, String> cookies = new HashMap<>();
+		Map<String, String> cookies = new HashMap<String, String>();
 		cookies.put("UM_distinctid", "15e11da9d8c289-0916cfcf6677b4-6316157a-100200-15e11da9d8d251");
 		cookies.put("ASPXANONYMOUS", "LOSoFApT0wEkAAAANDI5NjgxMjYtNmYwZC00ZjVlLTgzM2YtNDY4YWYyMTdmNzliv-Ru-uvlllnRdbdBks4mKbpCxik1");
 		cookies.put("CNZZDATA4478442", "cnzz_eid%3D2105914366-1503536190-%26ntime%3D1503536190");
