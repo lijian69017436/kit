@@ -45,7 +45,7 @@ public class Main {
 			// System.out.println(i);
 			// Thread.sleep(30);
 			System.out.println("执行请求数据总数:"+picc.count);
-			if (PropertiesUtil.getInstance().getValue("count").equals(picc.count)) {
+			if (picc.getValue("count").equals(picc.count)) {
 
 				return;
 			}
