@@ -15,6 +15,8 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
+import common.li.Log;
+
 public class Main {
 
 	int count = 0;
@@ -23,6 +25,7 @@ public class Main {
 		// System.out.println(TestDama.string2Unicode("蒙"));
 		// QY5820
 		Main picc = new Main();
+		Log.debug("-----");
 		System.out.println("总共需要执行的次数  : "+picc.getValue("count"));
 
 		// 随机1w个车牌
@@ -191,7 +194,7 @@ public class Main {
 				String startdate = DateUtils.formateString_format(DateUtils.formatDate_ymdhms(new Date(ss)),
 						"yyyy-MM-dd");
 
-				System.out.println(startdate + "|" + o.get("licenseNo") + "|" + phone((String) o.get("proposalNo"))
+				Log.info(startdate + "|" + o.get("licenseNo") + "|" + phone((String) o.get("proposalNo"))
 						+ "|" + o.get("insuredName") + "|" + o.get("policyNo") + "|" + o.get("proposalNo"));
 				;
 				// long ss = o.getJSONObject("endDate").getLong("time");

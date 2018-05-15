@@ -15,7 +15,11 @@
 		<fastjson.version>1.2.7</fastjson.version>
   </properties>
   <dependencies>
-    
+     <dependency>
+    	<groupId>lijian</groupId>
+    	<artifactId>1--all</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
     
     <dependency>
     	<groupId>javax.servlet.jsp</groupId>
