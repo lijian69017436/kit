@@ -7,7 +7,8 @@ public class PropertiesUtil {
 	private static Object lock              = new Object();
 	private static PropertiesUtil config     = null;
 	private static ResourceBundle rb        = null;
-	private static final String CONFIG_FILE = "config";
+	private static final String CONFIG_FILE = "picc/config"; //eclipse环境下运行
+//	private static final String CONFIG_FILE = "config"; //打成jar包 时候运行需要
 	
 	private PropertiesUtil() {
 		rb = ResourceBundle.getBundle(CONFIG_FILE);

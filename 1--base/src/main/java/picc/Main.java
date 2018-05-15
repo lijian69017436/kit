@@ -19,11 +19,11 @@ public class Main {
 
 	int count = 0;
 
-	public static void main(String[] args) throws Exception {
-		System.out.println();
+	public static void main(String[] args)  {
 		// System.out.println(TestDama.string2Unicode("蒙"));
 		// QY5820
 		Main picc = new Main();
+		System.out.println("总共需要执行的次数  : "+picc.getValue("count"));
 
 		// 随机1w个车牌
 		for (int i = 0; i < 100000; i++) {
@@ -35,16 +35,28 @@ public class Main {
 			}
 			chepai += picc.randomchepai();
 			// System.out.println("车牌号是："+chepai);
-			picc.dd(chepai);
+			try {
+				picc.dd(chepai);
+			} catch (Exception e) {
+				e.printStackTrace();
+				continue;
+				// TODO: handle exception
+			}
 			// System.out.println(i);
 			// Thread.sleep(30);
-			System.out.println(PropertiesUtil.getInstance().getValue("count"));
+			System.out.println("执行请求数据总数:"+picc.count);
 			if (PropertiesUtil.getInstance().getValue("count").equals(picc.count)) {
 
 				return;
 			}
 		}
+		
 	}
+	
+	public String getValue(String str){
+		return PropertiesUtil.getInstance().getValue(str);
+	}
+	
 
 	/**
 	 * 随机车牌
