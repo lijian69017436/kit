@@ -1,4 +1,4 @@
-package picc;
+package com.picc;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -17,8 +17,7 @@ public class PropertiesUtil {
 	static Properties properties;
 //	private static final String CONFIG_FILE = "picc/config"; //eclipse环境下运行
 //	private static final String CONFIG_FILE = "config"; //打成jar包 时候运行需要
-//	private static final String CONFIG_FILE = "z:\\work\\git\\kit\\1--base\\src\\main\\java\\picc\\config.properties"; //打成jar包 时候运行需要
-	private static final String CONFIG_FILE = "d:\\lijian\\config.properties"; //打成jar包 时候运行需要
+	private static final String CONFIG_FILE = "Z:\\work\\git\\kit\\1--base\\src\\main\\java\\picc\\config.properties"; //打成jar包 时候运行需要
 //	/1--base/src/main/java/picc/config.properties
 	private PropertiesUtil() {
 		 Locale locale = Locale.getDefault();  

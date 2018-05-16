@@ -22,34 +22,34 @@ public class FirstWindow {
 	private  static TextField tf=null;
 	
 	public static void main(String[] args) {
-		//´´½¨´°Ìå¶ÔÏó 
-		final Frame frame=new Frame("µÚÒ»¸ö´°Ìå");//´´½¨Ò»¸ö´°Ìå
-		Button bt=new Button("°´Å¥");//´´½¨Ò»¸ö°´Å¥
-//		bt.addActionListener(new ActionListener() {//°´Å¥ Ìí¼ÓÒ»¸ö  ¼àÌıÆ÷
+		//åˆ›å»ºçª—ä½“å¯¹è±¡ 
+		final Frame frame=new Frame("ç¬¬ä¸€ä¸ªçª—ä½“");//åˆ›å»ºä¸€ä¸ªçª—ä½“
+		Button bt=new Button("æŒ‰é’®");//åˆ›å»ºä¸€ä¸ªæŒ‰é’®
+//		bt.addActionListener(new ActionListener() {//æŒ‰é’® æ·»åŠ ä¸€ä¸ª  ç›‘å¬å™¨
 //			private int count =0;
 //			public void actionPerformed(ActionEvent e) {
-//				frame.add(new Button("°´Å¥"+count));//Ìí¼ÓÒ»¸ö°´Å¥
+//				frame.add(new Button("æŒ‰é’®"+count));//æ·»åŠ ä¸€ä¸ªæŒ‰é’®
 //				frame.validate();
 //			}
 //		});
 		
-		bt.addMouseListener(new MouseAdapter() {//Êó±êÊÂ¼ş¼àÌı
+		bt.addMouseListener(new MouseAdapter() {//é¼ æ ‡äº‹ä»¶ç›‘å¬
 			public void mouseClicked(MouseEvent e) {
-				System.out.println("µ¥»÷++");
-				 JFrame frame1=new JFrame("µÚ¶ş¸ö´°Ìå");
+				System.out.println("å•å‡»++");
+				 JFrame frame1=new JFrame("ç¬¬äºŒä¸ªçª—ä½“");
 					frame1.setBounds(100,100,1800,900);
-					frame1.setLayout(new FlowLayout());//´´½¨Ò»¸ö²¼¾Ö  ÉèÖÃÄ¬ÈÏ²¼¾Ö
-					frame1.setVisible(true);//ÈÃ´°Ìå¿É¼û
+					frame1.setLayout(new FlowLayout());//åˆ›å»ºä¸€ä¸ªå¸ƒå±€  è®¾ç½®é»˜è®¤å¸ƒå±€
+					frame1.setVisible(true);//è®©çª—ä½“å¯è§
 					frame1.setAlwaysOnTop(true);
 					
 			}
 		});
 		
 		
-		tf=new TextField();//Ìí¼ÓÎÄ±¾¿ò
+		tf=new TextField();//æ·»åŠ æ–‡æœ¬æ¡†
 		tf.setColumns(40);
-		tf.addKeyListener(new KeyAdapter() {//¼üÅÌÊÂ¼ş¼àÌı  
-			public void keyPressed(KeyEvent e){//Èç¹û ¼üÅÌÊäÈë enter ´òÓ¡ÎÄ±¾¿òÄÚÈİ
+		tf.addKeyListener(new KeyAdapter() {//é”®ç›˜äº‹ä»¶ç›‘å¬  
+			public void keyPressed(KeyEvent e){//å¦‚æœ é”®ç›˜è¾“å…¥ enter æ‰“å°æ–‡æœ¬æ¡†å†…å®¹
 				if(e.getKeyCode()==e.VK_ENTER){
 //					System.exit(0);
 					System.out.println(tf.getText());
@@ -58,20 +58,20 @@ public class FirstWindow {
 		});
 		
 		
-		frame.setLocation(300,399);//ÉèÖÃ´°ÌåÔÚÏÔÊ¾Æ÷µÄÎ»ÖÃ
-		frame.setSize(400,200);//´óĞ¡ 
+		frame.setLocation(300,399);//è®¾ç½®çª—ä½“åœ¨æ˜¾ç¤ºå™¨çš„ä½ç½®
+		frame.setSize(400,200);//å¤§å° 
 		
-		frame.setLayout(new FlowLayout());//´´½¨Ò»¸ö²¼¾Ö  ÉèÖÃÄ¬ÈÏ²¼¾Ö
-		frame.add(bt);//Ìí¼Ó°´Å¥
+		frame.setLayout(new FlowLayout());//åˆ›å»ºä¸€ä¸ªå¸ƒå±€  è®¾ç½®é»˜è®¤å¸ƒå±€
+		frame.add(bt);//æ·»åŠ æŒ‰é’®
 		frame.add(tf);
-		frame.add(new JLabel("ÏÔÊ¾ÎÄ×Ö"));
+		frame.add(new JLabel("æ˜¾ç¤ºæ–‡å­—"));
 		
-		frame.addWindowListener(new WindowAdapter(){ // ÎªÁË¹Ø±Õ´°¿Ú
+		frame.addWindowListener(new WindowAdapter(){ // ä¸ºäº†å…³é—­çª—å£
 			public void windowClosing(WindowEvent e) {
 				System.exit(0);
 			}
 		});
-		frame.setVisible(true);//ÈÃ´°Ìå¿É¼û
+		frame.setVisible(true);//è®©çª—ä½“å¯è§
 	}
 }
 
