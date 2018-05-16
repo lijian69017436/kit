@@ -6,11 +6,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
@@ -30,11 +28,7 @@ public class UploadFileUtils {
 	public static void uploadFile(HttpServletRequest req,String filePath){
 		try {
 			req.setCharacterEncoding("utf-8");
-		} catch (UnsupportedEncodingException e1) {
-			e1.printStackTrace();
-		}
-		try {
-			List<FileItem> items = parseRequest(req);
+			List<FileItem> items = parseRequest(req,filePath);
 			System.out.println(items.size()+"__");
 			// 2. 遍历 items:
 			for (FileItem item : items) {
@@ -48,13 +42,9 @@ public class UploadFileUtils {
 					writeFile(item, filePath,fileName);
 				}
 			}
-		} catch (FileUploadException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		} 
 	}
 
 /**
@@ -63,7 +53,7 @@ public class UploadFileUtils {
  * @return
  * @throws FileUploadException
  */
-	private static List<FileItem> parseRequest(HttpServletRequest req) throws FileUploadException {
+	private static List<FileItem> parseRequest(HttpServletRequest req,String filePath) throws FileUploadException {
 		// 1、创建一个DiskFileItemFactory工厂
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		// 2、创建一个文件上传解析器
@@ -71,7 +61,7 @@ public class UploadFileUtils {
 		// 解决上传文件名的中文乱码
 		upload.setHeaderEncoding("UTF-8");
 		factory.setSizeThreshold(1024 * 500);// 设置内存的临界值为500K
-		File linshi = new File("/patent/lijian/linshi");// 当超过500K的时候，存到一个临时文件夹中
+		File linshi = new File(filePath+"/linshi");// 当超过500K的时候，存到一个临时文件夹中
 		if (!linshi.exists()) {
 			linshi.mkdirs();
 		}
@@ -79,6 +69,7 @@ public class UploadFileUtils {
 		upload.setSizeMax(1024 * 1024 * 5);// 设置上传的文件总的大小不能超过5M
 		// 1. 得到 FileItem 的集合 items
 		return upload.parseRequest(req);
+		
 	}
 	
 	

@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>UploadiFive Test</title>
+<!-- 插件上传文件 测试   -->
+<script type="text/javascript" src="js/uploadify/jquery.js"></script>
+<script type="text/javascript" src="js/uploadify/jquery.uploadify.js"></script>
+
+<link rel="stylesheet" type="text/css" href="js/uploadify/uploadify.css">
+
+
+<style type="text/css">
+body {
+	font: 13px Arial, Helvetica, Sans-serif;
+}
+</style>
+</head>
+
+<body>
+	<h1>Uploadify Demo</h1>
+		<form>
+			<input id="file_upload" name="file_upload" type="file" multiple="true">
+			<div id="queue"></div> <!-- 提示信息区 -->
+		</form>
+       <p>
+      		<a href="javascript:#" onclick="uploadddd();">上传</a>|
+       </p>
+
+	<script type="text/javascript">
+		$(function() {
+			//初始化  上传 插件 
+			$('#file_upload').uploadify({
+				'queueID'  : 'queue',//上传进度展示
+				'buttonText': '请选择文件__by李健..',
+				'langFile':'js/uploadify/uploadifyLang_zh.js',
+				'swf': 'js/uploadify/uploadify.swf',
+				//'scriptAccess' : 'always',
+				'formData': { //表单数据
+					'pid' : 'portal',
+					'token': 'portal',
+					'filedesc':''
+				},
+				'method':'Post',
+				'scriptAccess' : 'always' ,
+				//'uploader' : 'http://202.100.72.139:8821/mgr/voice/file/v1/upload?var='+(new Date()).getTime(),
+				'uploader' : 'http://localhost:8080/base/upload',
+				'auto': true,
+				'onUploadStart' : function(file) {
+					//alert('Starting to upload ' + file.name);
+				},
+				'onUploadSuccess' : function(file, data, response) {
+					//alert('The file ' + file.name + ' was successfully uploaded with a response of ' + response + ':' + data);
+				},
+				'onUploadError' : function(file, errorCode, errorMsg, errorString) {
+					//alert('The file ' + file.name + ' could not be uploaded: ' + errorString);
+				},
+				onComplete: function (evt, queueID, fileObj, response, data) {
+						alert(response);
+				}
+
+			});
+		});
+		
+		function uploadddd(){
+			$('#file_upload').uploadify('upload');//上传
+			$('#file_upload').uploadify('cancel');//取消上传
+		}
+	</script>
+</body>
+</html>

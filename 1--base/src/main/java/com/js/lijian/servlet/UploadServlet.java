@@ -9,6 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.lijian.util.UploadFileUtils;
 
+
+/**
+ * 
+ * @Description: TODO( 上传 servlet  路径  /upload) 
+ * @author 李健 
+ * @date 2018年5月10日 下午1:50:32
+ */
 public class UploadServlet extends HttpServlet {
 
 	/**
