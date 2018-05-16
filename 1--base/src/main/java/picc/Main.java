@@ -15,15 +15,18 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
+import common.li.Log;
+
 public class Main {
 
 	int count = 0;
 
-	public static void main(String[] args) throws Exception {
-		System.out.println();
+	public static void main(String[] args)  {
 		// System.out.println(TestDama.string2Unicode("蒙"));
 		// QY5820
 		Main picc = new Main();
+		Log.debug("-----");
+		System.out.println("总共需要执行的次数  : "+picc.getValue("count"));
 
 		// 随机1w个车牌
 		for (int i = 0; i < 100000; i++) {
@@ -35,16 +38,28 @@ public class Main {
 			}
 			chepai += picc.randomchepai();
 			// System.out.println("车牌号是："+chepai);
-			picc.dd(chepai);
+			try {
+				picc.dd(chepai);
+			} catch (Exception e) {
+				e.printStackTrace();
+				continue;
+				// TODO: handle exception
+			}
 			// System.out.println(i);
 			// Thread.sleep(30);
-			System.out.println(PropertiesUtil.getInstance().getValue("count"));
-			if (PropertiesUtil.getInstance().getValue("count").equals(picc.count)) {
+			System.out.println("执行请求数据总数:"+picc.count);
+			if (picc.getValue("count").equals(picc.count)) {
 
 				return;
 			}
 		}
+		
 	}
+	
+	public String getValue(String str){
+		return PropertiesUtil.getInstance().getValue(str);
+	}
+	
 
 	/**
 	 * 随机车牌
@@ -179,7 +194,7 @@ public class Main {
 				String startdate = DateUtils.formateString_format(DateUtils.formatDate_ymdhms(new Date(ss)),
 						"yyyy-MM-dd");
 
-				System.out.println(startdate + "|" + o.get("licenseNo") + "|" + phone((String) o.get("proposalNo"))
+				Log.info(startdate + "|" + o.get("licenseNo") + "|" + phone((String) o.get("proposalNo"))
 						+ "|" + o.get("insuredName") + "|" + o.get("policyNo") + "|" + o.get("proposalNo"));
 				;
 				// long ss = o.getJSONObject("endDate").getLong("time");
