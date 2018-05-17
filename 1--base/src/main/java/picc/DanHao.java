@@ -13,6 +13,9 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
+import picc.common.DateUtils;
+import picc.common.Log;
+
 public class DanHao extends Base{
 
 	public static void main(String[] args) {
@@ -51,7 +54,7 @@ public class DanHao extends Base{
 					+ "&prpCproposalVo.dmFlag=all&prpCproposalVo.underWriteFlagC=&prpCproposalVo.brandName=&prpCproposalVo.engineNo=&prpCproposalVo.frameNo=&prpCproposalVo.riskCode=DAA,DZA&prpCproposalVo.appliCode=&prpCproposalVo.apliName=&prpCproposalVo.makeCom=&makeComDes=&prpCproposalVo.operatorCode=&operatorCodeDes=&prpCproposalVo.comCode=&comCodeDes=&prpCproposalVo.handlerCode=&handlerCodeDes=&prpCproposalVo.handler1Code=&handler1CodeDes=&prpCproposalVo.endDate=&prpCproposalVo.endDate2=&prpCproposalVo.underWriteEndDate=&prpCproposalVo.underWriteEndDate2=";
 			
 			try {
-				System.out.println(url);
+//				System.out.println(url);
 				con = Jsoup.connect( url)
 					.cookies(getCookie()).timeout(1000 * 10);
 				con.header("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8");  
@@ -61,6 +64,7 @@ public class DanHao extends Base{
 	            d=	con.post();
 			} catch (Exception e) {
 				Log.debug("错误信息:"+e.getMessage());
+				continue;
 			}
 
 			Element s = d.body();
