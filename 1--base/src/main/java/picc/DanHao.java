@@ -21,11 +21,23 @@ public class DanHao extends Base{
 	public static void main(String[] args) {
 		new DanHao().danhao();
 	}
-	
+//	URL	协议	方法	结果	类型	已接收	已花费	发起程序	等候‎‎	开始‎‎	请求‎‎	响应‎‎	已读取缓存‎‎	差距‎‎
 
 	// 查询单号 
 	@Test
 	public void danhao()  {
+		
+	//根据身份证  抓取  手机号
+	String dd="/prpall/custom/customAmountQueryP.do"
+			+ "?_identifyType=01"
+			+ "&_insuredName="
+			+ "&_identifyNumber=110228199310225912"
+			+ "&_insuredCode="
+			+ "&time=1526615123879"
+			
+			+ "	HTTP	GET	"
+			+ "200	text/html	"
+			;
 		String operateDate = "";
 		String operateDate2 = "";
 		String startDate = getValue("startTime");
