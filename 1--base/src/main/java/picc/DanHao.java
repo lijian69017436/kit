@@ -1,5 +1,6 @@
 package picc;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.Map;
 
@@ -23,30 +24,24 @@ public class DanHao extends Base{
 	}
 //	URL	协议	方法	结果	类型	已接收	已花费	发起程序	等候‎‎	开始‎‎	请求‎‎	响应‎‎	已读取缓存‎‎	差距‎‎
 
+   private  String str="";
+	
+		
 	// 查询单号 
 	@Test
 	public void danhao()  {
-		
-	//根据身份证  抓取  手机号
-	String dd="/prpall/custom/customAmountQueryP.do"
-			+ "?_identifyType=01"
-			+ "&_insuredName="
-			+ "&_identifyNumber=110228199310225912"
-			+ "&_insuredCode="
-			+ "&time=1526615123879"
+	
+	
 			
-			+ "	HTTP	GET	"
-			+ "200	text/html	"
-			;
 		String operateDate = "";
 		String operateDate2 = "";
 		String startDate = getValue("startTime");
 		String startDate2 = getValue("endTime");
-		System.out.println("时间:"+startDate);
-		System.out.println("时间:"+startDate2);
+		Log.debug("时间:"+startDate);
+		Log.debug("时间:"+startDate2);
 		int pageNo = 1;
 		while (true) {
-			if (20 == pageNo) {
+			if (200 == pageNo) {
 				return;
 			}
 			Document d = null;
@@ -102,20 +97,29 @@ public class DanHao extends Base{
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				Log.info(
-						startdate 
+				
+				
+				str=startdate 
 						+ "|" + o.get("licenseNo") 
-						+ "|" + phone
+					//	+ "|" + phone
 						+ "|" + o.get("insuredName") 
 						+ "|" + o.get("policyNo") 
-						+ "|" + o.get("proposalNo"));
-				;
+						+ "|" + o.get("proposalNo");
+				
+				
+				String licenseNo =(String)o.get("licenseNo");
+				String proposalNo =(String)o.get("proposalNo");
+				parseHtml(proposalNo);
+//				Log.info(
+//						; 
+//				;
 //				System.out.println(startdate + "|" + o.get("licenseNo") + "|" + phone((String) o.get("proposalNo"))
 //						+ "|" + o.get("insuredName") + "|" + o.get("policyNo") + "|" + o.get("proposalNo"));
 //				;
 				// long ss = o.getJSONObject("endDate").getLong("time");
 				// System.out.println(DateUtils.formatDate_ymdhms(new
 				// Date(ss))+"");
+//				return ;
 			}
 
 			try {
@@ -127,9 +131,96 @@ public class DanHao extends Base{
 		}
 
 	}
-	
-	
+	//解析  url 得到身份证
+	public void parseHtml(String proposalNo ) {
+		Element s=null;
+	//	System.out.println(proposalNo);
+		//查询 身份证  
+		String ddf="http://10.134.136.48:8000/prpall/business/showCinsured.do" + 
+				"?systemCode=" + 
+				"&editType=SHOW_PROPOSAL" + 
+				"&bizType=PROPOSAL" + 
+				"&bizNo=" +proposalNo+
+				"&riskCode=DAA&minusFlag=" + 
+				"&contractNo=" + 
+				"%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20" + 
+				"&comCode=11010283" + 
+				"&originQuery=" + 
+				"&beiRenewalFlag=" + 
+				"&proposalNo=" +proposalNo+ 
+				"&rnd243=" +new Date()+ 
+				"";
+		
+		Document d = null;
+//		String url = "http://10.134.136.48:8000/prpall/idcard/editIDCardCheck.do?bizNo="+bizNo;
+		try {
+			d = Jsoup.connect(ddf).cookies(getCookie())
+					.post();
+			s = d.body();
+//			"showIdentifyNumber[0]";
+//			;
+			//System.out.println(d.body());
+			//身份证 
+			String IdentifyNumber =s.select("#insertInsuredRow  tbody tr:eq(1) td:eq(5) input:eq(1)").val();
+			str+="|"+IdentifyNumber;
+			//System.out.println("身份证号:"+IdentifyNumber);
+			Phonedd(IdentifyNumber);
+//			System.out.println(s.select("#insertInsuredRow  input[name^=showIdentifyNumber*]  ").html());
+//			System.out.println(s.select("#insertInsuredRow  input:eq(0)  ").val());
+//			System.out.println();
+//			System.out.println(s.select("#insertInsuredRow  input[name^=showIdentifyNumber*]  ").html());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 
+	//根据身份证 抓取手机号
+	public void Phonedd(String IdentifyNumber) {
+		Document d = null;
+		Element s=null;
+		//根据身份证  抓取  手机号
+		String dd="http://10.134.136.48:8000/prpall/custom/customAmountQueryP.do"
+			+ "?_identifyType=01"
+			+ "&_insuredName="
+			+ "&_identifyNumber="+IdentifyNumber
+			+ "&_insuredCode="
+			+ "&time=1526615123879";
+		
+		try {
+			d = Jsoup.connect(dd).cookies(getCookie())
+					.post();
+			s = d.body();
+//			"showIdentifyNumber[0]";
+//			;
+//			System.out.println(d.body());
+			//身份证 
+//			String IdentifyNumber =s.select("#insertInsuredRow  tbody tr:eq(1) td:eq(5) input:eq(1)").val();
+//			System.out.println(s.html());
+			JSONObject json = (JSONObject) JSONObject.parse(s.html());
+			JSONArray jsonArray = json.getJSONArray("data");
+			JSONObject j=(JSONObject) jsonArray.get(0);
+//			System.out.println("手机号:"+j.get("mobileNoYG"));
+			str+="|"+j.get("mobileNoYG");
+			Log.debug(str);
+//			("#insertInsuredRow  input:eq(0)  ").val());
+//			System.out.println();
+//			System.out.println(s.select("#insertInsuredRow  input[name^=showIdentifyNumber*]  ").html());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
 	
 	// 查询 手机号 
 	public String phone(String bizNo)  {
@@ -156,15 +247,16 @@ public class DanHao extends Base{
 		d = Jsoup.connect(url).cookies(cookies)
 				.post();
 		s = d.body();
-		System.out.println("查询手机号返回结果:"+s);
+//		System.out.println("查询手机号返回结果:"+s);
 //		String url = "http://10.134.136.48:8000/prpall/idcard/editIDCardCheck.do?bizNo="+bizNo;
 		Document ht = Jsoup.connect(sss).cookies(cookies)
 				.post();
 		ss = ht.body();
-		System.out.println("查询关系人信息返回结果:"+ss);
+//		System.out.println("查询关系人信息返回结果:"+ss);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 		return s.select("#fm table tbody tr:eq(1) td:eq(1) input:eq(0)").val();
 	}
+	
 }

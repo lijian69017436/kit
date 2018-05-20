@@ -87,6 +87,15 @@
 	</dependency>
 
 
+
+<!-- https://mvnrepository.com/artifact/io.airlift/http-client -->
+<dependency>
+    <groupId>io.airlift</groupId>
+    <artifactId>http-client</artifactId>
+    <version>0.168</version>
+</dependency>
+
+
 	</dependencies>
 	<build>
 		<plugins>

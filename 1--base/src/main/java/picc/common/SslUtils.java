@@ -7,6 +7,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
+// 5.19  以前的ssl忽略
 public class SslUtils {
 	
 	static {  //忽视证书
@@ -24,6 +25,8 @@ public class SslUtils {
                 return false;  
             }  
         });  
+        
+      
     }  
 	
 	private static void trustAllHttpsCertificates() throws Exception {
@@ -31,6 +34,9 @@ public class SslUtils {
 		TrustManager tm = new miTM();
 		trustAllCerts[0] = tm;
 		SSLContext sc = SSLContext.getInstance("SSL");
+//		  sslConnectionSocketFactory = 
+//				  new SSLConnectionSocketFactory(sslContext, new String[]{"SSLv3", "TLSv1"},
+//	        		null, x509HostnameVerifier)
 		sc.init(null, trustAllCerts, null);
 		HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
 	}
