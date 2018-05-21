@@ -1,4 +1,4 @@
-package com.lijian.util;
+package expert.expert.regex.regex;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -74,8 +74,7 @@ public class ValidUtils {
 	/** 小写字母*/
 	private static final String letter_l="^[a-z]+$";					
 	/** 身份证*/
-//	private static final String idcard="^[1-9]([0-9]{14}|[0-9]{17})$";	 //不能认证 最后一位是x的
-	private static final String idcard="(^[1-9]\\d{5}(18|19|([23]\\d))\\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\\d{3}[0-9Xx]$)|(^[1-9]\\d{5}\\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\\d{2}$)";	
+	private static final String idcard="^[1-9]([0-9]{14}|[0-9]{17})$";	
 	/**判断字符串是否为浮点数*/
 	private static final String isFloat="^[-]?\\d+(\\.\\d+)?$";
 	/**判断字符串是否为正浮点数*/
@@ -249,7 +248,6 @@ public class ValidUtils {
 		System.out.println(isUInteger("10"));
 		System.out.println(isUInteger("1.3"));*/
 		System.out.println(isLetterAndSpace("tai  wan"));
-		System.out.println(isIDCard("11010519520428833X"));
 		
 	}
 }

@@ -58,8 +58,6 @@ public class Main extends Base{
 	}
 	
 
-	
-
 	/**
 	 * 随机车牌
 	 * 

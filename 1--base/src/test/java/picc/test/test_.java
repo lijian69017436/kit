@@ -1,4 +1,4 @@
-package picc;
+package picc.test;
 
 import java.util.Map;
 
@@ -7,6 +7,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.junit.Test;
+
+import picc.Base;
 
 public class test_ extends Base{
 

@@ -15,8 +15,14 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
+<!-- https://mvnrepository.com/artifact/commons-configuration/commons-configuration -->
+<dependency> 
+    <groupId>commons-configuration</groupId>
+    <artifactId>commons-configuration</artifactId>
+    <version>1.7</version>
+</dependency>
 
-	<!-- log4j 配置 begin -->
+		<!-- log4j 配置 begin -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
@@ -79,34 +85,39 @@
 			<artifactId>jsoup</artifactId>
 			<version>1.8.3</version>
 		</dependency>
-	 <dependency>
-	<groupId>org.apache.maven.plugins</groupId>
-	<artifactId>maven-compiler-plugin</artifactId>
-	<version>2.1</version>
-	<type>maven-plugin</type>
-	</dependency>
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>2.1</version>
+			<type>maven-plugin</type>
+		</dependency>
 
 
-
-<!-- https://mvnrepository.com/artifact/io.airlift/http-client -->
 <dependency>
-    <groupId>io.airlift</groupId>
-    <artifactId>http-client</artifactId>
-    <version>0.168</version>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi</artifactId>
+    <version>3.9</version>
 </dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml</artifactId>
+    <version>3.9</version>
+</dependency>
+		<!-- https://mvnrepository.com/artifact/io.airlift/http-client -->
+<!-- 		<dependency>
+			<groupId>io.airlift</groupId>
+			<artifactId>http-client</artifactId>
+			<version>0.168</version>
+		</dependency> -->
 
 
 	</dependencies>
 	<build>
 		<plugins>
-			<!-- <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
-			</plugin> -->
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-compiler-plugin</artifactId> 
+				<configuration> <source>1.6</source> <target>1.6</target> </configuration> 
+				</plugin> -->
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -127,51 +138,38 @@
 					</classesDirectory>
 				</configuration>
 			</plugin>
-			
-			<!-- <plugin>
-		        <groupId>org.apache.maven.plugins</groupId>
-		        <artifactId>maven-dependency-plugin</artifactId>
-		        <executions>
-		          <execution>
-		            <id>copy</id>
-		            <phase>package</phase>
-		            <goals>
-		              <goal>copy-dependencies</goal>
-		            </goals>
-		            <configuration>
-		              <outputDirectory>
-		                ${project.build.directory}/lib
-		              </outputDirectory>
-		            </configuration>
-		          </execution>
-		        </executions>
-		      </plugin> -->
-          
-        
-        <!-- maven 打成jar 包的插件  -->
-         <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>2.3</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <transformers>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>${exec.mainClass}</mainClass>
-                                </transformer>
-                            </transformers>
-                            <artifactSet>
-                            </artifactSet>
-                            <!--<outputFile>${project.build.directory}/${project.artifactId}-${project.version}-fat.jar</outputFile>-->
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-dependency-plugin</artifactId> 
+				<executions> <execution> <id>copy</id> <phase>package</phase> <goals> <goal>copy-dependencies</goal> 
+				</goals> <configuration> <outputDirectory> ${project.build.directory}/lib 
+				</outputDirectory> </configuration> </execution> </executions> </plugin> -->
+
+
+			<!-- maven 打成jar 包的插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.3</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<transformers>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>${exec.mainClass}</mainClass>
+								</transformer>
+							</transformers>
+							<artifactSet>
+							</artifactSet>
+							<!--<outputFile>${project.build.directory}/${project.artifactId}-${project.version}-fat.jar</outputFile> -->
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 		<finalName>base</finalName>
 	</build>
