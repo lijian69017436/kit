@@ -50,7 +50,7 @@ public class DanHao extends Base{
 		Log.debug("时间:"+startDate2);
 		int pageNo = Integer.valueOf((String)PropertiesUtils.getInstance().getValue("pageNo"));
 		while (true) {
-			if (2 == pageNo) {
+			if (Integer.valueOf(getValue("pageNoT")) == pageNo) {
 				break;
 			}
 			

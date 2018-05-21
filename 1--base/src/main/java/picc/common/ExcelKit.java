@@ -31,7 +31,7 @@ public class ExcelKit {
 			row.add("2015-02-03");
 			list.add(row);
 		}
-		createExcel("C:\\Users\\Administrator\\Desktop\\","writehead.xls",list , "2015" ,true);
+		createExcel("C:\\Users\\Administrator\\Desktop\\","writehead.xls",list , "ddd" ,true);
 		
 	}
 	
@@ -58,7 +58,7 @@ public class ExcelKit {
 			HSSFSheet sheet = wb.getSheet(sheetName); // 获取到工作表，因为一个excel可能有多个工作表
 			HSSFRow row;
 			if(null==sheet ) {
-				System.out.println("不存在");
+				System.out.println(filePath+fileName+" 文件 里边的 sheet "+sheetName+" 不存在");
 				sheet=wb.createSheet(sheetName);
 				row = sheet.getRow(0);
 				createHeader(sheet,row);
@@ -80,8 +80,8 @@ public class ExcelKit {
 			
 			
 			for(List s:data) { 
-				System.out.println("最后一行的 行号"+sheet.getLastRowNum());
-				System.out.println("一行有多少数据"+s.size());
+//				System.out.println("最后一行的 行号"+sheet.getLastRowNum());
+//				System.out.println("一行有多少数据"+s.size());
 				
 				row = sheet.createRow((short) (sheet.getLastRowNum() + 1)); // 在现有行号后追加数据
 				for(int i=0; i<s.size() ;i++) {
