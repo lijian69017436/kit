@@ -57,12 +57,17 @@ public class DanHao extends Base{
 			
 			mm=DateUtils.formateString_format(endTime,"MM"); //得到 月份  设置月份
 			
-			startTime=endTime; //循环结束  开始日期 等于结束日期
+			
 			PropertiesUtils.getInstance().setProperty("pageNo","1"); //初始化  第一页
 			status=0;
+			
+			if(startTime.equals(endTime)) {
+				Log.debug("这个月已经结束了 , "+mm+"月");
+				return ;
+			}
+			startTime=endTime; //循环结束  开始日期 等于结束日期
 		}
 		
-		danhao.getExcelName();
 		
 		
 		
