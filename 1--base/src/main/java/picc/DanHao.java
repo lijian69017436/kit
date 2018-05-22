@@ -25,18 +25,21 @@ import picc.common.PropertiesUtil;
 import picc.common.PropertiesUtils;
 
 public class DanHao extends Base{
+	static {
+		PropertiesUtil ins = PropertiesUtil.getInstance();
+		String mm=ins.getValue("mm");
+		String yy=ins.getValue("yy");
+		String user=ins.getValue("user");
+		System.setProperty ("lijian", yy+mm+"_"+user);
+	}
 	 public  Logger  dataLog=Logger.getLogger("data");
 	 public static  Logger  Log=Logger.getLogger("base");
 	 
-	 static {
-		 PropertiesUtil ins = PropertiesUtil.getInstance();
-		 String mm=ins.getValue("mm");
-		 System.setProperty ("WORKDIR", mm);
-	 }
 	static int status=0; //记录 错误异常信息  ,达到3次就结束此次任务
 	private IdentifyNumber identifyNumberBean=new IdentifyNumber();
 	private Phone phoneBean=new Phone();
 	List<List> list = new ArrayList<List>();
+	List<List> alllist = new ArrayList<List>();
 	private  String str="";
 	int pageNo;
 	
@@ -46,6 +49,7 @@ public class DanHao extends Base{
 //URL	协议	方法	结果	类型	已接收	已花费	发起程序	等候‎‎	开始‎‎	请求‎‎	响应‎‎	已读取缓存‎‎	差距
 	public static void main(String[] args) {
 		
+		System.out.println(System.getProperty("lijian"));
 		
 		DanHao danhao=new DanHao();
 		String startTime=danhao.getStartTime(); //起保日期
@@ -54,7 +58,7 @@ public class DanHao extends Base{
 		PropertiesUtil ins = PropertiesUtil.getInstance();
 		String mm=ins.getValue("mm");
 		
-		for(int i=0;i<6;i++) {
+		for(int i=0;i<7;i++) {
 			endTime=DateUtils.get_DD_and5(startTime); //
 			
 			String yy=ins.getValue("yy")+"";
@@ -85,19 +89,29 @@ public class DanHao extends Base{
 	public void danhaoRun(String startDate,String startDate2,String excelName) {
 		this.startDate=startDate;
 		this.startDate2=startDate2;
+		alllist.addAll(list);
+		list.clear();
 		
 		danhao();
 		
 		PropertiesUtils.getInstance().setProperty("pageNo",pageNo+"");
-		list.clear();
 		Log.debug("list:大小:"+list.size());
+		
+		ExcelKit d=new ExcelKit();
 		try {
-			ExcelKit d=new ExcelKit();
-			d.createExcel(getValue("excelPath"),excelName,  list, 
-					startDate+"到"+startDate2, false);;
+			if(startDate.equals(startDate2)) { //都执行完了 插入所有条数到  最后一个sheet
+				Log.debug("插入所有  数据 到最后一个sheet 总条数"+alllist.size());
+				d.createExcel(getValue("excelPath"),excelName,  alllist, 
+						"总条数"+alllist.size(), true);;
+				return ;
+			}else{
+				d.createExcel(getValue("excelPath"),excelName,  list, 
+						startDate+"到"+startDate2, false);;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 	}
 	
 	// 查询单号 
@@ -163,6 +177,11 @@ public class DanHao extends Base{
 					+ "&prpCproposalVo.startDate2=" + startDate2
 					+ "&prpCproposalVo.underWriteFlag2=1" //通过
 					+ "&prpCproposalVo.underWriteFlag6=3" //自动核保通过
+//					+ "&prpCproposalVo.underWriteFlag1=0" //初始值
+//					+ "&prpCproposalVo.underWriteFlag3=2" //不通过
+//					+ "&prpCproposalVo.underWriteFlag4=4" //见费出单
+//					+ "&prpCproposalVo.underWriteFlag5=9" //待核保
+//					+ "&prpCproposalVo.underWriteFlag9=6" //待同步
 					+ "&prpCproposalVo.underWriteFlagC="
 					+ "&prpCproposalVo.underWriteFlagD=D" //自动核保转保单
 					+ "&prpCproposalVo.underWriteFlagE=E" //人工核保转保单
