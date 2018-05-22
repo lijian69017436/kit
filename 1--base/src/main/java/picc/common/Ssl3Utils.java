@@ -1,4 +1,4 @@
-package picc.common;
+/*package picc.common;
 
 import java.io.IOException;
 import java.security.KeyManagementException;
@@ -27,10 +27,10 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 
-/**
+*//**
  *
  * @author mark.jones
- */
+ *//*
 public class Ssl3Utils {
 
     public static void main(String[] args) {
@@ -145,4 +145,4 @@ public class Ssl3Utils {
             }
         }
     }
-}
+}*/

@@ -59,6 +59,7 @@ public class Phone extends Base {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			DanHao.status++; //记录错误信息
 		}
 		return "";
 

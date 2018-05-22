@@ -57,6 +57,8 @@ public class FileTool {
       if(!fil.exists()){
          fil.createNewFile();
          result="创建 文件 成功"+filePath+fileName;
+      }else {
+    	  result="文件已经存在";
       }
 //      Log.base.debug(""+fil.getAbsoluteFile());
     } catch (IOException e){

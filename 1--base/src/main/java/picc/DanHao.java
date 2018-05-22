@@ -24,6 +24,7 @@ import picc.common.PropertiesUtils;
 
 public class DanHao extends Base{
 
+	static int status=0;
 	private IdentifyNumber identifyNumberBean=new IdentifyNumber();
 	private Phone phoneBean=new Phone();
 	List<List> list = new ArrayList<List>();
@@ -53,7 +54,9 @@ public class DanHao extends Base{
 			if (Integer.valueOf(getValue("pageNoT")) == pageNo) {
 				break;
 			}
-			
+			if(status==3) {//错误信息
+				break;
+			}
 			
 			Document d = null;
 			Connection con=null;
@@ -134,6 +137,7 @@ public class DanHao extends Base{
 	            d=	con.post();
 			} catch (Exception e) {
 				Log.debug("错误信息:"+e.getMessage());
+				status++;
 				continue;
 			}
 
@@ -157,13 +161,14 @@ public class DanHao extends Base{
 				Thread.sleep(1000 * 4);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
+				status++;
 			}
 		}
 		
 		PropertiesUtils.getInstance().setProperty("pageNo",pageNo+"");
 		try {
 			ExcelKit d=new ExcelKit();
-			d.createExcel("C:\\Users\\Administrator\\Desktop\\", "1.xls", list, startDate+"到"+startDate2, false);;
+			d.createExcel(getValue("excelPath"), getValue("excelName"), list, startDate+"到"+startDate2, false);;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -220,6 +225,9 @@ public class DanHao extends Base{
 			row.add(identifyNumber);
 			row.add(startdate);
 			list.add(row);
+			if(status==3) {
+				return;
+			}
 		}
 
 	}

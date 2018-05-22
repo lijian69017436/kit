@@ -114,7 +114,10 @@ public class ExcelKit {
 	
 	public void createFile(String filePath,String fileName){
 		 try {
-			 FileTool.createFile(filePath, fileName);
+			 String result=FileTool.createFile(filePath, fileName);
+			 if("文件已经存在".equals(result)) {
+				 return;
+			 }
 		        HSSFWorkbook workbook = new HSSFWorkbook();
 		        FileOutputStream fileOut = new FileOutputStream(filePath+fileName);
 		        workbook.write(fileOut);

@@ -15,12 +15,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
-<!-- https://mvnrepository.com/artifact/commons-configuration/commons-configuration -->
-<dependency> 
-    <groupId>commons-configuration</groupId>
-    <artifactId>commons-configuration</artifactId>
-    <version>1.7</version>
-</dependency>
+		
 
 		<!-- log4j 配置 begin -->
 		<dependency>
@@ -92,24 +87,30 @@
 			<type>maven-plugin</type>
 		</dependency>
 
-
-<dependency>
-    <groupId>org.apache.poi</groupId>
-    <artifactId>poi</artifactId>
-    <version>3.9</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
-<dependency>
-    <groupId>org.apache.poi</groupId>
-    <artifactId>poi-ooxml</artifactId>
-    <version>3.9</version>
-</dependency>
+	<!-- poi excel -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.9</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.9</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/io.airlift/http-client -->
-<!-- 		<dependency>
-			<groupId>io.airlift</groupId>
-			<artifactId>http-client</artifactId>
-			<version>0.168</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>io.airlift</groupId> <artifactId>http-client</artifactId> 
+			<version>0.168</version> </dependency> -->
+
+		<!-- properties  动态修改文件  https://mvnrepository.com/artifact/commons-configuration/commons-configuration -->
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>1.7</version>
+		</dependency>
+
+
 
 
 	</dependencies>

@@ -54,6 +54,7 @@ public class IdentifyNumber extends Base{
 			return IdentifyNumber;
 		} catch (Exception e) {
 			e.printStackTrace();
+			DanHao.status++; //记录错误信息
 		}
 		
 		return "";
