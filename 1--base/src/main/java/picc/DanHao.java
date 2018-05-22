@@ -25,7 +25,7 @@ import picc.common.PropertiesUtils;
 
 public class DanHao extends Base{
 
-	static int status=0;
+	static int status=0; //记录 错误异常信息  ,达到3次就结束此次任务
 	private IdentifyNumber identifyNumberBean=new IdentifyNumber();
 	private Phone phoneBean=new Phone();
 	List<List> list = new ArrayList<List>();
@@ -46,7 +46,7 @@ public class DanHao extends Base{
 		PropertiesUtil ins = PropertiesUtil.getInstance();
 		String mm=ins.getValue("mm");
 		
-		for(int i=0;i<4;i++) {
+		for(int i=0;i<6;i++) {
 			endTime=DateUtils.get_DD_and5(startTime); //
 			
 			String yy=ins.getValue("yy")+"_";
@@ -56,6 +56,7 @@ public class DanHao extends Base{
 			
 			
 			mm=DateUtils.formateString_format(endTime,"MM"); //得到 月份  设置月份
+			
 			startTime=endTime; //循环结束  开始日期 等于结束日期
 			PropertiesUtils.getInstance().setProperty("pageNo","1"); //初始化  第一页
 			status=0;
@@ -67,12 +68,13 @@ public class DanHao extends Base{
 		
 	}
 	
-	
+	//根据  开始时间  结束 时间   文件名 来写入数据到文件
 	public void danhaoRun(String startDate,String startDate2,String excelName) {
 		this.startDate=startDate;
 		this.startDate2=startDate2;
 		
 		danhao();
+		
 		PropertiesUtils.getInstance().setProperty("pageNo",pageNo+"");
 		try {
 			ExcelKit d=new ExcelKit();
@@ -93,13 +95,14 @@ public class DanHao extends Base{
 		
 		Log.debug("时间:"+startDate);
 		Log.debug("时间:"+startDate2);
-		Log.debug("时间:"+getExcelName());
+		Log.debug("excel名字:"+getExcelName());
 		pageNo = Integer.valueOf((String)PropertiesUtils.getInstance().getValue("pageNo"));
 		while (true) {
 			if (Integer.valueOf(getValue("pageNoT")) == pageNo) {
 				break;
 			}
 			if(status==3) {//错误信息
+				Log.debug("时间:"+startDate+"  结束时间:"+startDate2 +"发生错误异常 3次以上");
 				break;
 			}
 			

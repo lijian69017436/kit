@@ -84,16 +84,31 @@ public class DateUtils {
    * @return
    */
   public static String get_DD_and5(String date){
+	  String mm=formateString_format(date,"MM");
+	  
 	  SimpleDateFormat sim=new SimpleDateFormat("yyyy-MM-dd");
+	  
 	  String fd=""; 
 	  try {
-	      Date d=sim.parse(date);
+	     Date d=sim.parse(date);
 	     long dd= d.getTime()+(1000*60*60*24)*5;
 	     Date ff=new Date(dd);
 	     
 	     fd= sim.format(ff);
 //	     System.out.println(fd);
-//	    System.out.println(formateString_format(fd,"MM"));
+	     
+	     
+	     String s= formateString_format(fd,"MM");
+	     
+		  while (!s.equals(mm)) {
+			  Date dp = sim.parse(fd);
+			  dd= dp.getTime()-(1000*60*60*24);
+			  ff=new Date(dd);
+			  fd= sim.format(ff);
+//			  System.out.println(fd);
+			  s=formateString_format(fd,"MM");
+		  }
+		  
 	    } catch (ParseException e) {
 	      e.printStackTrace();
 	    }
@@ -101,6 +116,11 @@ public class DateUtils {
   }
   
 
+
+  @Test
+  public void dddf() {
+	  System.out.println(get_DD_and5("2016-02-39"));
+  }
   
   
 }
