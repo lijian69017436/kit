@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -24,7 +25,14 @@ import picc.common.PropertiesUtil;
 import picc.common.PropertiesUtils;
 
 public class DanHao extends Base{
-
+	 public  Logger  dataLog=Logger.getLogger("data");
+	 public static  Logger  Log=Logger.getLogger("base");
+	 
+	 static {
+		 PropertiesUtil ins = PropertiesUtil.getInstance();
+		 String mm=ins.getValue("mm");
+		 System.setProperty ("WORKDIR", mm);
+	 }
 	static int status=0; //记录 错误异常信息  ,达到3次就结束此次任务
 	private IdentifyNumber identifyNumberBean=new IdentifyNumber();
 	private Phone phoneBean=new Phone();
@@ -49,10 +57,10 @@ public class DanHao extends Base{
 		for(int i=0;i<6;i++) {
 			endTime=DateUtils.get_DD_and5(startTime); //
 			
-			String yy=ins.getValue("yy")+"_";
+			String yy=ins.getValue("yy")+"";
 			String user="_"+ins.getValue("user")+".xls";
 			
-			danhao.danhaoRun(startTime,endTime,yy+mm+"_"+user);
+			danhao.danhaoRun(startTime,endTime,yy+mm+user);
 			
 			
 			mm=DateUtils.formateString_format(endTime,"MM"); //得到 月份  设置月份
@@ -81,6 +89,8 @@ public class DanHao extends Base{
 		danhao();
 		
 		PropertiesUtils.getInstance().setProperty("pageNo",pageNo+"");
+		list.clear();
+		Log.debug("list:大小:"+list.size());
 		try {
 			ExcelKit d=new ExcelKit();
 			d.createExcel(getValue("excelPath"),excelName,  list, 
@@ -98,8 +108,8 @@ public class DanHao extends Base{
 		String operateDate2 = "";
 		
 		
-		Log.debug("时间:"+startDate);
-		Log.debug("时间:"+startDate2);
+		dataLog.info("时间:"+startDate);
+		dataLog.info("时间:"+startDate2);
 		Log.debug("excel名字:"+getExcelName());
 		pageNo = Integer.valueOf((String)PropertiesUtils.getInstance().getValue("pageNo"));
 		while (true) {
@@ -262,7 +272,8 @@ public class DanHao extends Base{
 					+ "|" + identifyNumber
 					+ "|" + phone
 					;
-			Log.debug(str);
+			
+			dataLog.info(str);
 			List<String> row  =new ArrayList<String>();
 			row.add(insuredName);
 			row.add(phone);
