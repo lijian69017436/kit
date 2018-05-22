@@ -61,20 +61,48 @@ public class DateUtils {
   
   /**
    * 格式化 日期 到  指定格式
-   * @param date
-   * @param format
+   * @param date 2016-05-05
+   * @param format  
    * @return
    */
   public static String formateString_format(String date,String format){
 	  SimpleDateFormat df=new SimpleDateFormat(format);
-	  return df.format(formatString_ymdhms(date));
+	    try {
+	    	SimpleDateFormat sim=new SimpleDateFormat("yyyy-MM-dd");
+	    	Date d=sim.parse(date);
+	    	return df.format(d);
+	    }  catch (ParseException e) {
+	        e.printStackTrace();
+	    }
+	    return null;
   }
-  @Test
-  public void testt(){
-    ;
-//    String da = formateSS_ymdhms(getTime_s(new Date()));
-//    System.out.println(da);
+  
+  /**
+   * 
+   * @Description: TODO( 日期自动加5 天)  
+   * @param date 2010-01-01
+   * @return
+   */
+  public static String get_DD_and5(String date){
+	  SimpleDateFormat sim=new SimpleDateFormat("yyyy-MM-dd");
+	  String fd=""; 
+	  try {
+	      Date d=sim.parse(date);
+	     long dd= d.getTime()+(1000*60*60*24)*5;
+	     Date ff=new Date(dd);
+	     
+	     fd= sim.format(ff);
+//	     System.out.println(fd);
+//	    System.out.println(formateString_format(fd,"MM"));
+	    } catch (ParseException e) {
+	      e.printStackTrace();
+	    }
+	    return fd;
   }
+  
+
+  
+  
 }
 
   

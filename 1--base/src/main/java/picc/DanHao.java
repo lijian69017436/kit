@@ -20,6 +20,7 @@ import com.lijian.util.ValidUtils;
 import picc.common.DateUtils;
 import picc.common.ExcelKit;
 import picc.common.Log;
+import picc.common.PropertiesUtil;
 import picc.common.PropertiesUtils;
 
 public class DanHao extends Base{
@@ -28,31 +29,72 @@ public class DanHao extends Base{
 	private IdentifyNumber identifyNumberBean=new IdentifyNumber();
 	private Phone phoneBean=new Phone();
 	List<List> list = new ArrayList<List>();
-	
 	private  String str="";
+	int pageNo;
 	
 	Map<String,String> cache=	new HashMap<String,String>();
-   
+	String startDate;
+	String startDate2;
 //URL	协议	方法	结果	类型	已接收	已花费	发起程序	等候‎‎	开始‎‎	请求‎‎	响应‎‎	已读取缓存‎‎	差距
 	public static void main(String[] args) {
 		
 		
-//		new DanHao().danhao();
-	}
+		DanHao danhao=new DanHao();
+		String startTime=danhao.getStartTime(); //起保日期
+		String endTime; //结束日期
 		
+		PropertiesUtil ins = PropertiesUtil.getInstance();
+		String mm=ins.getValue("mm");
+		
+		for(int i=0;i<4;i++) {
+			endTime=DateUtils.get_DD_and5(startTime); //
+			
+			String yy=ins.getValue("yy")+"_";
+			String user="_"+ins.getValue("user")+".xls";
+			
+			danhao.danhaoRun(startTime,endTime,yy+mm+"_"+user);
+			
+			
+			mm=DateUtils.formateString_format(endTime,"MM"); //得到 月份  设置月份
+			startTime=endTime; //循环结束  开始日期 等于结束日期
+			PropertiesUtils.getInstance().setProperty("pageNo","1"); //初始化  第一页
+			status=0;
+		}
+		
+		danhao.getExcelName();
+		
+		
+		
+	}
+	
+	
+	public void danhaoRun(String startDate,String startDate2,String excelName) {
+		this.startDate=startDate;
+		this.startDate2=startDate2;
+		
+		danhao();
+		PropertiesUtils.getInstance().setProperty("pageNo",pageNo+"");
+		try {
+			ExcelKit d=new ExcelKit();
+			d.createExcel(getValue("excelPath"),excelName,  list, 
+					startDate+"到"+startDate2, false);;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	// 查询单号 
 	@Test
 	public void danhao()  {
 			
 		String operateDate = "";//签单日期
 		String operateDate2 = "";
-		String startDate = getStartTime();//起保日期
-		String startDate2 = getEndTime();
+		
 		
 		Log.debug("时间:"+startDate);
 		Log.debug("时间:"+startDate2);
 		Log.debug("时间:"+getExcelName());
-		int pageNo = Integer.valueOf((String)PropertiesUtils.getInstance().getValue("pageNo"));
+		pageNo = Integer.valueOf((String)PropertiesUtils.getInstance().getValue("pageNo"));
 		while (true) {
 			if (Integer.valueOf(getValue("pageNoT")) == pageNo) {
 				break;
@@ -82,7 +124,7 @@ public class DanHao extends Base{
 					+ "&prpallURL=http://10.134.136.48:8000/prpall"
 					+ "&bizNoZ=&"
 					+ "pageNo_="+pageNo
-					+ "&pageSize_=100"
+					+ "&pageSize_=20"
 					+ "&scmIsOpen=1111100000"
 					+ "&searchConditionSwitch=0"
 					+ "&queryinterval=04"
@@ -168,13 +210,7 @@ public class DanHao extends Base{
 			}
 		}
 		
-		PropertiesUtils.getInstance().setProperty("pageNo",pageNo+"");
-		try {
-			ExcelKit d=new ExcelKit();
-			d.createExcel(getValue("excelPath"), getExcelName(), list, startDate+"到"+startDate2, false);;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		
 	}
 	
 	/**
