@@ -35,7 +35,9 @@ public class DanHao extends Base{
    
 //URL	协议	方法	结果	类型	已接收	已花费	发起程序	等候‎‎	开始‎‎	请求‎‎	响应‎‎	已读取缓存‎‎	差距
 	public static void main(String[] args) {
-		new DanHao().danhao();
+		
+		
+//		new DanHao().danhao();
 	}
 		
 	// 查询单号 
@@ -44,11 +46,12 @@ public class DanHao extends Base{
 			
 		String operateDate = "";//签单日期
 		String operateDate2 = "";
-		String startDate = getValue("startTime");//起保日期
-		String startDate2 = getValue("endTime");
+		String startDate = getStartTime();//起保日期
+		String startDate2 = getEndTime();
 		
 		Log.debug("时间:"+startDate);
 		Log.debug("时间:"+startDate2);
+		Log.debug("时间:"+getExcelName());
 		int pageNo = Integer.valueOf((String)PropertiesUtils.getInstance().getValue("pageNo"));
 		while (true) {
 			if (Integer.valueOf(getValue("pageNoT")) == pageNo) {
@@ -129,7 +132,7 @@ public class DanHao extends Base{
 			try {
 				con = Jsoup.connect( url)
 					.cookies(getCookie())
-					.timeout(1000 * 10);
+					.timeout(1000 * 30);
 				con.header("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8");  
 	            con.header("Accept-Encoding", "gzip, deflate, sdch");  
 	            con.header("Accept-Language", "zh-CN,zh;q=0.8");  
@@ -168,7 +171,7 @@ public class DanHao extends Base{
 		PropertiesUtils.getInstance().setProperty("pageNo",pageNo+"");
 		try {
 			ExcelKit d=new ExcelKit();
-			d.createExcel(getValue("excelPath"), getValue("excelName"), list, startDate+"到"+startDate2, false);;
+			d.createExcel(getValue("excelPath"), getExcelName(), list, startDate+"到"+startDate2, false);;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

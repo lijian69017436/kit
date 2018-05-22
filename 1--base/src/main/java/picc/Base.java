@@ -24,4 +24,23 @@ public class Base {
 	protected String getValue(String str){
 		return PropertiesUtil.getInstance().getValue(str);
 	}
+	
+	//得到 开始时间
+	protected String getStartTime(){
+		PropertiesUtil ins = PropertiesUtil.getInstance();
+		return ins.getValue("yy")+"-"+ins.getValue("mm")+"-"+ins.getValue("dd1");
+	}
+	//得到 结束时间
+	protected String getEndTime(){
+		PropertiesUtil ins = PropertiesUtil.getInstance();
+		return ins.getValue("yy")+"-"+ins.getValue("mm")+"-"+ins.getValue("dd2");
+	}
+	//得到文件名
+	protected String getExcelName(){
+		PropertiesUtil ins = PropertiesUtil.getInstance();
+		return ins.getValue("yy")+ins.getValue("mm")+"_"+ins.getValue("user")+".xls";
+	}
+	
+	
+	
 }
