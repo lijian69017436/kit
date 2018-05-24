@@ -94,7 +94,8 @@ public class DanHao extends Base{
 		try {
 			ExcelKit d=new ExcelKit();
 			d.createExcel(getValue("excelPath"),excelName,  list, 
-					startDate+"到"+startDate2, false);;
+					DateUtils.formateString_format(startDate,"MM")
+					+"到"+DateUtils.formateString_format(startDate2,"MM"), false);;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
