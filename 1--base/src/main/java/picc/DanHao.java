@@ -64,7 +64,7 @@ public class DanHao extends Base{
 			String yy=ins.getValue("yy")+"";
 			String user=ins.getValue("user");
 			
-			danhao.danhaoRun(startTime,endTime,user+"__"+yy+mm+".xls");
+			danhao.danhaoRun(startTime,endTime,user+"__"+yy+mm+".xls",user);
 			
 			
 			mm=DateUtils.formateString_format(endTime,"MM"); //得到 月份  设置月份
@@ -86,7 +86,7 @@ public class DanHao extends Base{
 	}
 	
 	//根据  开始时间  结束 时间   文件名 来写入数据到文件
-	public void danhaoRun(String startDate,String startDate2,String excelName) {
+	public void danhaoRun(String startDate,String startDate2,String excelName,String user) {
 		this.startDate=startDate;
 		this.startDate2=startDate2;
 		alllist.addAll(list);
@@ -101,11 +101,11 @@ public class DanHao extends Base{
 		try {
 			if(startDate.equals(startDate2)) { //都执行完了 插入所有条数到  最后一个sheet
 				Log.debug("插入所有  数据 到最后一个sheet 总条数"+alllist.size());
-				d.createExcel(getValue("excelPath"),excelName,  alllist, 
+				d.createExcel(getValue("excelPath")+user+"\\",excelName,  alllist, 
 						"总条数"+alllist.size(), true);;
 				return ;
 			}else{
-				d.createExcel(getValue("excelPath"),excelName,  list, 
+				d.createExcel(getValue("excelPath")+user+"\\",excelName,  list, 
 					DateUtils.formateString_format(startDate,"dd")
 					+"-"+DateUtils.formateString_format(startDate2,"dd"), false);;
 				
