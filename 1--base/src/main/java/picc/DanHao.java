@@ -31,6 +31,7 @@ public class DanHao extends Base{
 		String yy=ins.getValue("yy");
 		String user=ins.getValue("user");
 		System.setProperty ("lijian", user+"__"+yy+mm);
+		System.setProperty ("lijian_dir", user);
 	}
 	 public  Logger  dataLog=Logger.getLogger("data");
 	 public static  Logger  Log=Logger.getLogger("base");
