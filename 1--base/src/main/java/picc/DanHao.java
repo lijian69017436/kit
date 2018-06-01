@@ -30,7 +30,7 @@ public class DanHao extends Base{
 		String mm=ins.getValue("mm");
 		String yy=ins.getValue("yy");
 		String user=ins.getValue("user");
-		System.setProperty ("lijian", yy+mm+"_"+user);
+		System.setProperty ("lijian", user+"__"+yy+mm);
 	}
 	 public  Logger  dataLog=Logger.getLogger("data");
 	 public static  Logger  Log=Logger.getLogger("base");
@@ -58,13 +58,13 @@ public class DanHao extends Base{
 		PropertiesUtil ins = PropertiesUtil.getInstance();
 		String mm=ins.getValue("mm");
 		
-		for(int i=0;i<6;i++) {
+		for(int i=0;i<7;i++) {
 			endTime=DateUtils.get_DD_and5(startTime); //
 			
 			String yy=ins.getValue("yy")+"";
-			String user="_"+ins.getValue("user")+".xls";
+			String user=ins.getValue("user");
 			
-			danhao.danhaoRun(startTime,endTime,yy+mm+user);
+			danhao.danhaoRun(startTime,endTime,user+"__"+yy+mm+".xls");
 			
 			
 			mm=DateUtils.formateString_format(endTime,"MM"); //得到 月份  设置月份
@@ -106,8 +106,8 @@ public class DanHao extends Base{
 				return ;
 			}else{
 				d.createExcel(getValue("excelPath"),excelName,  list, 
-					DateUtils.formateString_format(startDate,"MM")
-					+"到"+DateUtils.formateString_format(startDate2,"MM"), false);;
+					DateUtils.formateString_format(startDate,"dd")
+					+"-"+DateUtils.formateString_format(startDate2,"dd"), false);;
 				
 			}
 		} catch (Exception e) {
@@ -124,11 +124,13 @@ public class DanHao extends Base{
 		String operateDate2 = "";
 		
 		
-		dataLog.info("时间:"+startDate);
-		dataLog.info("时间:"+startDate2);
+		dataLog.info("时间:"+startDate + "结束时间:"+startDate2);
 		Log.debug("excel名字:"+getExcelName());
 		pageNo = Integer.valueOf((String)PropertiesUtils.getInstance().getValue("pageNo"));
 		while (true) {
+//			if(pageNo==2) {
+//				break;
+//			}
 			if (Integer.valueOf(getValue("pageNoT")) == pageNo) {
 				break;
 			}
