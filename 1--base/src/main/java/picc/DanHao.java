@@ -50,7 +50,6 @@ public class DanHao extends Base{
 //URL	协议	方法	结果	类型	已接收	已花费	发起程序	等候‎‎	开始‎‎	请求‎‎	响应‎‎	已读取缓存‎‎	差距
 	public static void main(String[] args) {
 		
-		System.out.println(System.getProperty("lijian"));
 		
 		DanHao danhao=new DanHao();
 		String startTime=danhao.getStartTime(); //起保日期
@@ -92,11 +91,13 @@ public class DanHao extends Base{
 		this.startDate2=startDate2;
 		alllist.addAll(list);
 		list.clear();
+		Log.debug("\r\n\r\n\r\n\r\n");
+		Log.debug("excel名字:"+excelName);
 		
 		danhao();
 		
 		PropertiesUtils.getInstance().setProperty("pageNo",pageNo+"");
-		Log.debug("list:大小:"+list.size());
+		Log.debug("开始时间:"+startDate+" 结束时间:"+startDate2 +"  数据条数:"+list.size());
 		
 		ExcelKit d=new ExcelKit();
 		try {
@@ -126,7 +127,7 @@ public class DanHao extends Base{
 		
 		
 		dataLog.info("时间:"+startDate + "结束时间:"+startDate2);
-		Log.debug("excel名字:"+getExcelName());
+		
 		pageNo = Integer.valueOf((String)PropertiesUtils.getInstance().getValue("pageNo"));
 		while (true) {
 //			if(pageNo==2) {
@@ -239,7 +240,7 @@ public class DanHao extends Base{
 				Log.debug("没数据了------------------------------------------");
 				break;
 			}
-			System.out.println("总条数  "+atotalRecordsy  +"  当前页" +pageNo);
+			Log.debug("总条数  "+atotalRecordsy  +"  当前页" +pageNo);
 			
 			paresJson(array);
 			pageNo++;
@@ -282,7 +283,7 @@ public class DanHao extends Base{
 			//根据身份证   去机构
 			String identifyNumber = identifyNumberBean.getIdentifyNumber(proposalNo);
 			identifyNumber=identifyNumber.trim();
-			System.out.println("是否是身份证 :"+ValidUtils.isIDCard(identifyNumber) +"____"+identifyNumber +"___投保单号:"+proposalNo );
+			Log.debug("是否是身份证 :"+ValidUtils.isIDCard(identifyNumber) +"____"+identifyNumber +"___投保单号:"+proposalNo );
 			if(!ValidUtils.isIDCard(identifyNumber)) {
 				continue;
 			}

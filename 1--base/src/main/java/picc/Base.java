@@ -36,10 +36,10 @@ public class Base {
 		return ins.getValue("yy")+"-"+ins.getValue("mm")+"-"+ins.getValue("dd2");
 	}
 	//得到文件名
-	protected String getExcelName(){
-		PropertiesUtil ins = PropertiesUtil.getInstance();
-		return ins.getValue("yy")+ins.getValue("mm")+"_"+ins.getValue("user")+".xls";
-	}
+//	protected String getExcelName(){
+//		PropertiesUtil ins = PropertiesUtil.getInstance();
+//		return ins.getValue("yy")+ins.getValue("mm")+"_"+ins.getValue("user")+".xls";
+//	}
 	
 	
 	
