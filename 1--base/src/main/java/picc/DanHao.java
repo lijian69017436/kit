@@ -16,6 +16,7 @@ import org.junit.Test;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.lijian.util.StringUtil;
 import com.lijian.util.ValidUtils;
 
 import picc.common.DateUtils;
@@ -283,11 +284,20 @@ public class DanHao extends Base{
 			//根据身份证   去机构
 			String identifyNumber = identifyNumberBean.getIdentifyNumber(proposalNo);
 			identifyNumber=identifyNumber.trim();
-			Log.debug("是否是身份证 :"+ValidUtils.isIDCard(identifyNumber) +"____"+identifyNumber +"___投保单号:"+proposalNo );
 			if(!ValidUtils.isIDCard(identifyNumber)) {
+				Log.debug("格式不正确 :"+ValidUtils.isIDCard(identifyNumber) +",____身份证:"+identifyNumber +",___投保单号:"+proposalNo );
 				continue;
 			}
 			String phone =phoneBean.getPhone(identifyNumber);
+			
+			if(StringUtil.isNull(phone)) {
+				Log.debug( phone +"此号码  , 为空  ,投保单号:"+proposalNo);
+				continue ;
+			}
+			if(!ValidUtils.isMobile_(phone)) {
+				Log.debug( phone +" 此号码  ,不符合规则 ."+proposalNo);
+				continue;
+			};
 			
 			str=	startdate 
 					+ "|" + licenseNo

@@ -12,6 +12,8 @@ public class ValidUtils {
 
 	private static final String mobile = "^(13|15|18|17|16)[0-9]{9}$";
 	
+	//排除 虚拟手机号  和 虚拟网号   170 171 149 145 147
+	private static final String mobile_="^((13[0-9])|(15[^4,\\D])|(17[3568])|(17[7])|(18[0,0-9]))\\d{8}$";
 	private static final String codeAndMobile = "^\\+[0-9]{2}\\-(13|15|18|17|16)[0-9]{9}$";
 	
 	/**整数*/
@@ -89,6 +91,14 @@ public class ValidUtils {
 	/** 手机号 */
 	public static boolean isMobile(String input){
 		return matches(mobile, input);
+	}
+	/**
+	 * 
+	 * @Description: TODO( 验证 是否为 手机号  排除虚拟手机号)  
+	 * @return
+	 */
+	public static boolean isMobile_(String input){
+		return matches(mobile_, input);
 	}
 	public static boolean isCodeAndMobile(String input){
 		return matches(codeAndMobile, input);
