@@ -65,6 +65,10 @@ public class DanHao extends Base{
 			String yy=ins.getValue("yy")+"";
 			String user=ins.getValue("user");
 			
+			if(startTime.equals(endTime)) {
+				Log.debug("这个月已经结束了 , "+mm+"月");
+				return ;
+			}
 			danhao.danhaoRun(startTime,endTime,user+"__"+yy+mm+".xls",user);
 			
 			
@@ -74,11 +78,8 @@ public class DanHao extends Base{
 			PropertiesUtils.getInstance().setProperty("pageNo","1"); //初始化  第一页
 			status=0;
 			
-			if(startTime.equals(endTime)) {
-				Log.debug("这个月已经结束了 , "+mm+"月");
-				return ;
-			}
 			startTime=endTime; //循环结束  开始日期 等于结束日期
+			startTime=DateUtils.get_DD_and_(startTime,1);
 		}
 		
 		
@@ -242,7 +243,10 @@ public class DanHao extends Base{
 				break;
 			}
 			Log.debug("总条数  "+atotalRecordsy  +"  当前页" +pageNo);
-			
+			if(!"-1".equals(atotalRecordsy)) {
+				dataLog.info("总条数:"+atotalRecordsy+" ,当前页"+pageNo);
+				break;
+			}
 			paresJson(array);
 			pageNo++;
 			

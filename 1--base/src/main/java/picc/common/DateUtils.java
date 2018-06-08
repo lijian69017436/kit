@@ -83,7 +83,7 @@ public class DateUtils {
    * @param date 2010-01-01
    * @return
    */
-  public static String get_DD_and5(String date){
+  public static String get_DD_and_(String date,int day){
 	  String mm=formateString_format(date,"MM");
 	  
 	  SimpleDateFormat sim=new SimpleDateFormat("yyyy-MM-dd");
@@ -91,7 +91,7 @@ public class DateUtils {
 	  String fd=""; 
 	  try {
 	     Date d=sim.parse(date);
-	     long dd= d.getTime()+(1000*60*60*24)*5;
+	     long dd= d.getTime()+(1000*60*60*24)*day;
 	     Date ff=new Date(dd);
 	     
 	     fd= sim.format(ff);
@@ -115,7 +115,14 @@ public class DateUtils {
 	    return fd;
   }
   
-
+  /**
+   * 
+   * @Description: TODO(日期自动加5 天)  
+   * @return
+   */
+  public static String get_DD_and5(String date){
+	 return  get_DD_and_(date,5);
+  }
 
   @Test
   public void dddf() {
